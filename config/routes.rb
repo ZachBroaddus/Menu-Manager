@@ -6,6 +6,8 @@ Rails.application.routes.draw do
 
   resources :sessions, only: [:create, :destroy]
 
+  resources :items, only: [:new, :create, :update, :destroy, :index]
+
   root "items#index", as: "menu"
 
   get 'logout', to: "sessions#destroy", as: 'logout'

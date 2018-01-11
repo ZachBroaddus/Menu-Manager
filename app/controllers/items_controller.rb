@@ -4,4 +4,7 @@ class ItemsController < ApplicationController
     @items = Item.order(:category)
   end
 
+  def new
+  end
+
 end
