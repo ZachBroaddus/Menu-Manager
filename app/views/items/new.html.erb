@@ -1,4 +1,11 @@
-<h1>Congrats! This is the new item page!</h1>
+<h1>Please enter the item details below:</h1>
 <%= form_for :item, url: items_path do |f| %>
+  <%= render partial: "shared/errors", locals: {errors: @errors} if @errors %>
 
-<%= end %>
+  <%= f.text_field :name, placeholder: "name" %><br><br>
+  <%= f.text_area :description, placeholder: "description" %><br><br>
+  <%= f.text_field :category, placeholder: "category" %><br><br>
+  <%= f.text_field :price, placeholder: "price" %><br><br>
+
+  <%= f.submit %>
+<% end %>

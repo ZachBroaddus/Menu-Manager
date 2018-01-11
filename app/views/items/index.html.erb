@@ -1,11 +1,10 @@
 <h1>Menu</h1>
-<% @items.each do |item| %>
-  <ul>
-    <li><%= item.name %></li>
-    <li><%= item.description %></li>
-    <li>hide the category</li>
-    <li><%= item.category %></li>
-    <li>hide this ^</li>
-    <li><%= item.price %></li>
+
+<!-- render error partial here -->
+
+<!-- change this to render each category separately -->
+<div id="menu-container">
+  <ul id="item-list" style="list-style-type:none">
+    <%= render @items %>
   </ul>
-<% end %>
+</div>

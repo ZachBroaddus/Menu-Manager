@@ -8,7 +8,7 @@ Rails.application.routes.draw do
 
   resources :items, only: [:new, :create, :update, :destroy, :index]
 
-  root "items#index", as: "menu"
+  root "items#index"
 
   get 'logout', to: "sessions#destroy", as: 'logout'
   match "/404", :to => "errors#not_found", :via => :all
