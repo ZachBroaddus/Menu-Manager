@@ -10,17 +10,14 @@ module ApplicationHelper
   end
 
   def admin?
-    current_user.role == "admin" if logged_in?
+    current_user.role == "admin"
   end
 
-  def redirect_unless_logged_in
-    unless logged_in?
+  def redirect_unless_logged_in_admin
+    if !logged_in?
       redirect_to new_session_path, alert: "Please sign in."
-    end
-  end
-
-  def redirect_unless_admin
-    unless admin?
+      return
+    elsif !admin?
       redirect_to root_path, alert: "You are not authorized to do that."
     end
   end

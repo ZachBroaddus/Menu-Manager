@@ -1,13 +1,12 @@
 class ItemsController < ApplicationController
   before_action :find_item, only: [:edit, :update, :destroy]
+  before_action -> { redirect_unless_logged_in_admin }, except: [:index]
 
   def index
     @items = Item.order(:category)
   end
 
   def new
-    redirect_unless_logged_in
-    redirect_unless_admin
     @item = Item.new
   end
 
@@ -23,8 +22,6 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    redirect_unless_logged_in and return
-    redirect_unless_admin
   end
 
   def update
@@ -36,8 +33,6 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-    redirect_unless_logged_in
-    redirect_unless_admin
     @item.destroy
     redirect_to root_path
   end
