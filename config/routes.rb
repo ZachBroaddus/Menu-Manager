@@ -10,6 +10,9 @@ Rails.application.routes.draw do
 
   resources :orders, only: [:create, :destroy]
 
+  resources :order_items, only: [:create, :destroy]
+  # resources :order_items
+
   root "items#index"
 
   get 'logout', to: 'sessions#destroy'
