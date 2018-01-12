@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   resources :sessions, only: [:create, :destroy]
 
-  resources :items, only: [:new, :create, :update, :destroy, :index]
+  resources :items, except: [:show]
 
   root "items#index"
 

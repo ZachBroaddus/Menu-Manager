@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
       redirect_to root_path
     else
       @errors = ["Your password/email combination are incorrect."]
-      render 'new'
+      render :new
     end
   end
 

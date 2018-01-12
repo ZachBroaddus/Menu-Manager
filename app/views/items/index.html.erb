@@ -1,10 +1,9 @@
 <h1>Menu</h1>
 
-<!-- render error partial here -->
-
 <!-- change this to render each category separately -->
 <div id="menu-container">
   <ul id="item-list" style="list-style-type:none">
     <%= render @items %>
   </ul>
 </div>
+<%= link_to 'Add an Item', new_item_path %>

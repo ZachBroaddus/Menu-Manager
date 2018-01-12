@@ -1,0 +1,10 @@
+<%= form_for @item do |f| %>
+  <%= render partial: "shared/errors", locals: {errors: @errors} if @errors %>
+
+  <%= f.text_field :name, placeholder: "name" %><br><br>
+  <%= f.text_area :description, placeholder: "description" %><br><br>
+  <%= f.text_field :category, placeholder: "category" %><br><br>
+  <%= f.text_field :price, placeholder: "price" %><br><br>
+
+  <%= f.submit "Confirm and Add" %>
+<% end %>
