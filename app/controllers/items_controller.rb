@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   before_action :find_item, only: [:edit, :update, :destroy]
-  before_action -> { redirect_unless_logged_in_admin }, except: [:index]
+  before_action :redirect_unless_logged_in_admin, except: [:index]
 
   def index
     @items = Item.order(:category)

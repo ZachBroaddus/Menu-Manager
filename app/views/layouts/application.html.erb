@@ -28,6 +28,10 @@
         <div class="alert alert-<%= key %>"><%= value %></div>
       <% end %>
     <%= yield %>
+      <% unless current_order %>
+        <%= button_to "Start Your Order", {:controller => :orders,
+        :action => 'create' }, :method => :post %>
+      <% end %>
     <br><br>
     <footer>
       <span>Created by Zach Broaddus for Table XI</span>
