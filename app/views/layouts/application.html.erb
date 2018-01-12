@@ -9,6 +9,28 @@
   </head>
 
   <body>
+    <div id="nav-container">
+      <nav>
+        <ul style="list-style-type:none">
+          <% unless current_page?(root_path) %>
+            <%= link_to "Return to Menu", root_path %>
+          <% end %>
+          <% if logged_in? %>
+            <li><%= link_to "Logout", logout_path %></li>
+          <% else %>
+          <li><%= link_to "Login", new_session_path %></li>
+          <li><%= link_to "Sign up", new_user_path %></li>
+          <% end %>
+        </ul>
+      </nav>
+    </div>
+      <% flash.each do |key, value| %>
+        <div class="alert alert-<%= key %>"><%= value %></div>
+      <% end %>
     <%= yield %>
+    <br><br>
+    <footer>
+      <span>Created by Zach Broaddus for Table XI</span>
+    </footer>
   </body>
 </html>

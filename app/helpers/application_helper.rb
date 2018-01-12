@@ -9,12 +9,20 @@ module ApplicationHelper
     session[:user_id] != nil
   end
 
-  def redirect_unless_logged_in
-    redirect_to new_session_path unless logged_in?
+  def admin?
+    current_user.role == "admin" if logged_in?
   end
 
-  def redirect_unless_owner(user)
-    redirect_to root_path unless current_user == user
+  def redirect_unless_logged_in
+    unless logged_in?
+      redirect_to new_session_path, alert: "Please sign in."
+    end
+  end
+
+  def redirect_unless_admin
+    unless admin?
+      redirect_to root_path, alert: "You are not authorized to do that."
+    end
   end
 
   def authorized?(user)

@@ -1,0 +1,9 @@
+<h2>Sign up</h2>
+
+<%= render partial: "shared/errors", locals: {errors: @errors} if @errors %>
+<%= form_for(@user) do |f| %>
+  <%= f.text_field :email, placeholder: "Email" %>
+  <%= f.text_field :first_name, placeholder: "First Name" %>
+  <%= f.password_field :password, placeholder: "Password" %>
+  <%= submit_tag "Confirm" %>
+<% end %>

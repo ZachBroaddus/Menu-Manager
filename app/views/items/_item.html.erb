@@ -4,7 +4,9 @@
     <%= item.description %><br>
     <%= item.category %><br>
     $ <%= item.price %><br>
-    <%= link_to 'Edit', edit_item_path(item) %>
-    | <%= link_to 'Delete', item_path(item), method: :delete, data: { confirm: 'Are you sure?'} %>
+    <% if logged_in? && admin? %>
+      <%= link_to 'Edit', edit_item_path(item) %>
+      | <%= link_to 'Delete', item_path(item), method: :delete, data: { confirm: 'Are you sure?'} %>
+    <% end %>
   </span>
 </li><br>
