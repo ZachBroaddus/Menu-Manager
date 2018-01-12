@@ -10,6 +10,10 @@ class OrdersController < ApplicationController
   end
 
   def destroy
+    @order = current_order
+    session[:order_id] = nil
+    @order.destroy
+    redirect_to root_path
   end
 
 end
