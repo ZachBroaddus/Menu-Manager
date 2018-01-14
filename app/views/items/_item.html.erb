@@ -7,9 +7,10 @@
 
     <% if current_order && item_not_in_cart?(item) %>
 
-
+      <!-- this is not working, fix this next -->
       <%= form_with url: order_items_path do |form| %>
-        <%= hidden_field_tag 'item_id', item.id  %>
+        <%= form.hidden_field :order_id, { :value => current_order.id} %>
+        <%= form.hidden_field :item_id, { :value => item.id} %>
         <%= form.submit "Add to Order" %>
       <% end %>
 

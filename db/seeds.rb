@@ -12,8 +12,8 @@ User.create!(email: "zach.broaddus@gmail.com", first_name: "Zach", password: "ad
 end
 
 Order.delete_all
-Order.create!(user_id: 1)
-Order.create!(user_id: 2)
+Order.create!(user_id: 1, status: "placed")
+Order.create!(user_id: 2, status: "placed")
 
 OrderItem.delete_all
 8.times do

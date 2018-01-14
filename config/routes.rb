@@ -8,13 +8,13 @@ Rails.application.routes.draw do
 
   resources :items, except: [:show]
 
-  resources :orders, only: [:create, :destroy]
+  resources :orders, only: [:create, :destroy, :show, :update, :confirm]
 
   resources :order_items, only: [:create, :destroy]
-  # resources :order_items
 
-  root "items#index"
+  root 'items#index'
 
+  get 'confirm', to: 'orders#confirm'
   get 'logout', to: 'sessions#destroy'
 
   match '/404', :to => 'errors#not_found', :via => :all

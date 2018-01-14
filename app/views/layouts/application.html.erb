@@ -16,6 +16,7 @@
             <%= link_to "Return to Menu", root_path %>
           <% end %>
           <% if logged_in? %>
+            <li>Welcome Back, <%= current_user.formatted_name %>!</li>
             <li><%= link_to "Logout", logout_path %></li>
           <% else %>
           <li><%= link_to "Login", new_session_path %></li>

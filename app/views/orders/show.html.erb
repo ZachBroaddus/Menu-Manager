@@ -1,0 +1,4 @@
+<h1>This is the order show page!</h1>
+
+<%= button_to "Place Order", {:controller => :orders,
+:action => 'update', :id => current_order.id }, :method => :put %>

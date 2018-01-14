@@ -32,11 +32,6 @@ module ApplicationHelper
   end
 
   def current_order
-    # if !session[:order_id].nil?
-    #   Order.find(session[:order_id])
-    # else
-    #   Order.new
-    # end
     @current_order ||= Order.find_by(id: session[:order_id])
   end
 

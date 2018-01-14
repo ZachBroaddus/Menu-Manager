@@ -13,6 +13,7 @@
   <%= button_to "Start Your Order", {:controller => :orders,
   :action => 'create' }, :method => :post %>
 <% else %>
+<%= button_to "Review and Confirm Order", {:controller => :orders, :action => 'show', :id => current_order.id }, :method => :get %>
   <%= button_to "Cancel Order", {:controller => :orders,
 :action => 'destroy', :id => current_order.id }, :method => :delete %>
 <% end %>
