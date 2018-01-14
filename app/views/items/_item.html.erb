@@ -6,14 +6,11 @@
     $ <%= item.price %><br>
 
     <% if current_order && item_not_in_cart?(item) %>
-
-      <!-- this is not working, fix this next -->
-      <%= form_with url: order_items_path do |form| %>
-        <%= form.hidden_field :order_id, { :value => current_order.id} %>
-        <%= form.hidden_field :item_id, { :value => item.id} %>
-        <%= form.submit "Add to Order" %>
+      <%= form_for @order_item do |f| %>
+        <%= f.hidden_field :order_id, { :value => current_order.id} %>
+        <%= f.hidden_field :item_id, { :value => item.id} %>
+        <%= f.submit "Add to Order" %>
       <% end %>
-
     <% elsif current_order %>
       <%= button_to "Remove from Order", {:controller => :order_items, :action => 'destroy', :id => order_item_to_remove(item).id }, :method => :delete %>
     <% end %>

@@ -4,6 +4,7 @@ class ItemsController < ApplicationController
 
   def index
     @items = Item.order(:category)
+    @order_item = OrderItem.new
   end
 
   def new
