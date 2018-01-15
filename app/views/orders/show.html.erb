@@ -1,7 +1,42 @@
-<h1>Please review and confirm your order</h1>
-  <ul id="item-list" style="list-style-type:none">
-    <%= render :partial => 'item_in_order', :collection => @items_in_order %>
-  </ul>
+<% if current_order.items.count > 0 %>
+  <h1>Please review and confirm your order</h1>
+    <ul id="item-list" style="list-style-type:none">
+      <%= render :partial => 'item_in_order', :collection => @items_in_order %>
+    </ul>
+  <h3>Order Total: $<%= pretty_price(current_order.total) %></h3>
+  <% if current_order.tip_multiplier == 0 %>
+    <h3>Add a tip?</h3>
 
-<%= button_to "Place Order", {:controller => :orders,
-:action => 'update', :id => current_order.id }, :method => :put %>
+    <div style="float:left;">
+      <%= form_for @order, :url => {:controller => :orders, action: :update}, method: :put do |f| %>
+        <%= f.hidden_field :tip_multiplier, { :value => 0.1 } %>
+        <%= f.submit "10%" %>
+      <% end %>
+    </div>
+    <div style="float:left;">
+      <%= form_for @order, :url => {:controller => :orders, action: :update}, method: :put do |f| %>
+        <%= f.hidden_field :tip_multiplier, { :value => 0.15 } %>
+        <%= f.submit "15%" %>
+      <% end %>
+    </div>
+    <div style="float:left;">
+      <%= form_for @order, :url => {:controller => :orders, action: :update}, method: :put do |f| %>
+        <%= f.hidden_field :tip_multiplier, { :value => 0.2 } %>
+        <%= f.submit "20%" %>
+      <% end %>
+    </div><br>
+  <% end %>
+
+  <h3> + Tip: $<%= pretty_price(current_order.tip) %></h3>
+  <h3>Total (including tip): <%= pretty_price(current_order.total_with_tip) || pretty_price(current_order.total) %></h3>
+
+  <%= form_for @order, :url => {:controller => :orders, action: :update}, method: :put do |f| %>
+    <%= f.hidden_field :status, { :value => 'placed' } %>
+    <%= f.submit "Place Order" %>
+  <% end %>
+<% else %>
+  <h1>Not hungry? You haven't ordered anything, yet.</h1>
+<% end %>
+
+
+

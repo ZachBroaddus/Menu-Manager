@@ -33,4 +33,8 @@ module ApplicationHelper
     @order_item = current_order.order_items.find_by(item_id: item.id)
   end
 
+  def pretty_price(price)
+    sprintf "%.2f", price
+  end
+
 end

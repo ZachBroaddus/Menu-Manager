@@ -3,7 +3,7 @@
     <%= item.name %><br>
     <%= item.description %><br>
     <%= item.category %><br>
-    $ <%= item.price %><br>
+    $ <%= pretty_price(item.price) %><br>
 
     <% if current_order && item_not_in_cart?(item) %>
       <%= form_for @order_item, url: order_items_path(@order_item), method: :post do |f| %>

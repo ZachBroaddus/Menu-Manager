@@ -5,7 +5,7 @@ class OrdersController < ApplicationController
       redirect_to new_session_path, alert: "Please sign in."
     else
       unless current_order
-        @order = Order.create!(user_id: current_user.id, status: "in progress")
+        @order = Order.create!(user_id: current_user.id)
         session[:order_id] = @order.id
         redirect_to root_path
       end
@@ -13,14 +13,22 @@ class OrdersController < ApplicationController
   end
 
   def show
+    @order = current_order
     @items_in_order = current_order.items
   end
 
   def update
-    current_order.status = "placed"
+    current_order.update(order_params)
     current_order.save
-    session[:order_id] = nil
-    redirect_to confirm_path
+
+    if current_order.status == "placed"
+      session[:order_id] = nil
+      redirect_to confirm_path
+    elsif current_order.tip_multiplier > 0
+      @order = current_order
+      @items_in_order = current_order.items
+      render :show
+    end
   end
 
   def confirm
@@ -30,6 +38,12 @@ class OrdersController < ApplicationController
     current_order.destroy
     session[:order_id] = nil
     redirect_to root_path
+  end
+
+  private
+
+  def order_params
+    params.require(:order).permit(:user_id, :status, :tip_multiplier)
   end
 
 end
