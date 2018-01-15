@@ -1,6 +1,5 @@
 class User < ApplicationRecord
   has_secure_password
-  # before_save :set_user_role
 
   validates :first_name, :email, :role, presence: true
   validates_length_of :password, :minimum => 8
@@ -13,10 +12,5 @@ class User < ApplicationRecord
   def formatted_name
     self.first_name.downcase.capitalize
   end
-
-  # private
-  # def set_user_role
-  #   self.role = "user" if self.role == nil
-  # end
 
 end

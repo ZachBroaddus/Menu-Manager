@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  get 'errors/not_found'
-  get 'errors/internal_server_error'
 
   resources :users, only: [:new, :create]
 
@@ -10,14 +8,13 @@ Rails.application.routes.draw do
 
   resources :orders, only: [:create, :destroy, :show, :update, :confirm]
 
-  resources :order_items, only: [:create, :edit, :update, :destroy]
+  resources :order_items, only: [:create, :update, :destroy]
 
   root 'items#index'
 
   get 'confirm', to: 'orders#confirm'
   get 'logout', to: 'sessions#destroy'
 
-  match '/404', :to => 'errors#not_found', :via => :all
-  match '/500', :to => 'errors#internal_server_error', :via => :all
+  get "*any", via: :all, to: "errors#not_found"
 end
 

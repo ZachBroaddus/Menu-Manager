@@ -1,12 +1,11 @@
 class OrdersController < ApplicationController
 
   def create
-    # redirect_unless_logged_in
     if logged_in? != true
       redirect_to new_session_path, alert: "Please sign in."
     else
       unless current_order
-        @order = Order.create(user_id: current_user.id, status: "in progress")
+        @order = Order.create!(user_id: current_user.id, status: "in progress")
         session[:order_id] = @order.id
         redirect_to root_path
       end
@@ -28,9 +27,8 @@ class OrdersController < ApplicationController
   end
 
   def destroy
-    @order = current_order
+    current_order.destroy
     session[:order_id] = nil
-    @order.destroy
     redirect_to root_path
   end
 
