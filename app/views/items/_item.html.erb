@@ -6,13 +6,14 @@
     $ <%= item.price %><br>
 
     <% if current_order && item_not_in_cart?(item) %>
-      <%= form_for @order_item do |f| %>
-        <%= f.hidden_field :order_id, { :value => current_order.id} %>
-        <%= f.hidden_field :item_id, { :value => item.id} %>
+      <%= form_for @order_item, url: order_items_path(@order_item), method: :post do |f| %>
+        <%= f.hidden_field :order_id, { :value => current_order.id } %>
+        <%= f.hidden_field :item_id, { :value => item.id } %>
+        <%= f.hidden_field :quantity, { :value => 1 } %>
         <%= f.submit "Add to Order" %>
       <% end %>
     <% elsif current_order %>
-      <%= button_to "Remove from Order", {:controller => :order_items, :action => 'destroy', :id => order_item_to_remove(item).id }, :method => :delete %>
+      <%= button_to "Remove from Order", {:controller => :order_items, :action => 'destroy', :id => current_order_item(item).id }, :method => :delete %>
     <% end %>
 
     <% if logged_in? && admin? %>

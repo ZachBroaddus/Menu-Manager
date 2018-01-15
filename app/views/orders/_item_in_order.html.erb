@@ -1,0 +1,21 @@
+<li>
+  <span class="item-info">
+    <%= item_in_order.name %><br>
+    <%= item_in_order.description %><br>
+    <%= item_in_order.category %><br>
+    $ <%= item_in_order.price %><br>
+
+    <div style="float:left;">
+      <%= button_to "-", {:controller => :order_items, :action => 'update', :id => current_order_item(item_in_order).id }, :method => :put, data: (current_order_item(item_in_order).quantity <= 1 ? { confirm:  "Are you sure you want to remove this item from your order?"} : nil), params: {'change_type' => 'decrement'} %>
+    </div>
+    <div style="float:left;">
+      <span>&nbsp;<%= current_order_item(item_in_order).quantity %>&nbsp;</span>
+    </div>
+    <div style="float:left;">
+      <%= button_to "+", {:controller => :order_items, :action => 'update', :id => current_order_item(item_in_order).id }, :method => :put, params: {'change_type' => 'increment'} %>
+    </div><br>
+
+    <!-- change all instances of order_item_to_modify to current_order_item and change helper method name -->
+
+  </span>
+</li><br>

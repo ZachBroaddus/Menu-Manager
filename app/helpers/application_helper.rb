@@ -39,8 +39,8 @@ module ApplicationHelper
     !current_order.items.include?(item)
   end
 
-  def order_item_to_remove(item)
-    item = current_order.order_items.find_by(item_id: item.id)
+  def current_order_item(item)
+    @order_item = current_order.order_items.find_by(item_id: item.id)
   end
 
 end

@@ -16,17 +16,18 @@ ActiveRecord::Schema.define(version: 20180110225843) do
   enable_extension "plpgsql"
 
   create_table "items", force: :cascade do |t|
-    t.string "name"
-    t.string "description"
-    t.string "category"
-    t.decimal "price", precision: 12, scale: 3
+    t.string "name", null: false
+    t.string "description", null: false
+    t.string "category", null: false
+    t.decimal "price", precision: 12, scale: 3, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "order_items", force: :cascade do |t|
-    t.bigint "order_id"
-    t.bigint "item_id"
+    t.bigint "order_id", null: false
+    t.bigint "item_id", null: false
+    t.integer "quantity", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["item_id"], name: "index_order_items_on_item_id"
@@ -34,7 +35,7 @@ ActiveRecord::Schema.define(version: 20180110225843) do
   end
 
   create_table "orders", force: :cascade do |t|
-    t.bigint "user_id"
+    t.bigint "user_id", null: false
     t.string "status", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -42,10 +43,10 @@ ActiveRecord::Schema.define(version: 20180110225843) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "email"
-    t.string "first_name"
+    t.string "email", null: false
+    t.string "first_name", null: false
     t.string "password_digest"
-    t.string "role"
+    t.string "role", default: "user", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

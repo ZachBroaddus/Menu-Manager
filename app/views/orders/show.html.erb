@@ -1,4 +1,7 @@
-<h1>This is the order show page!</h1>
+<h1>Please review and confirm your order</h1>
+  <ul id="item-list" style="list-style-type:none">
+    <%= render :partial => 'item_in_order', :collection => @items_in_order %>
+  </ul>
 
 <%= button_to "Place Order", {:controller => :orders,
 :action => 'update', :id => current_order.id }, :method => :put %>

@@ -1,10 +1,10 @@
 class CreateItems < ActiveRecord::Migration[5.1]
   def change
     create_table :items do |t|
-      t.string :name
-      t.string :description
-      t.string :category
-      t.decimal :price, precision: 12, scale: 3
+      t.string :name, null: false
+      t.string :description, null: false
+      t.string :category, null: false
+      t.decimal :price, precision: 12, scale: 3, null: false
 
       t.timestamps
     end
