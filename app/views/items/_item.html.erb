@@ -1,31 +1,30 @@
-
-    <div class="col-lg-4 col-md-6 mb-4">
-      <div class="card h-100">
-        <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
-        <div class="card-body">
-          <h4 class="card-title">
-            <%= item.name %>
-          </h4>
-          <h5>$ <%= pretty_price(item.price) %></h5>
-          <p class="card-text"><%= item.description %></p>
-        </div>
-        <div class="card-footer">
-          <% if current_order && item_not_in_cart?(item) %>
-            <%= form_for @order_item, url: order_items_path(@order_item), method: :post do |f| %>
-              <%= f.hidden_field :order_id, { :value => current_order.id } %>
-              <%= f.hidden_field :item_id, { :value => item.id } %>
-              <%= f.hidden_field :quantity, { :value => 1 } %>
-              <%= f.submit "Add to Order" %>
-            <% end %>
-          <% elsif current_order %>
-            <%= button_to "Remove from Order", {:controller => :order_items, :action => 'destroy', :id => current_order_item(item).id }, :method => :delete %>
-          <% end %>
-
-          <% if logged_in? && admin? %>
-            <%= link_to 'Edit', edit_item_path(item) %>
-            | <%= link_to 'Delete', item_path(item), method: :delete, data: { confirm: 'Are you sure you want to delete this item from the menu?'} %>
-          <% end %>
-        </div>
-      </div>
+<div class="col-lg-4 col-md-6 mb-4">
+  <div class="card h-100">
+    <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+    <div class="card-body">
+      <h4 class="card-title">
+        <%= item.name %>
+      </h4>
+      <h5>$ <%= pretty_price(item.price) %></h5>
+      <p class="card-text"><%= item.description %></p>
     </div>
+    <div class="card-footer">
+      <% if current_order && item_not_in_cart?(item) %>
+        <%= form_for @order_item, url: order_items_path(@order_item), method: :post do |f| %>
+          <%= f.hidden_field :order_id, { :value => current_order.id } %>
+          <%= f.hidden_field :item_id, { :value => item.id } %>
+          <%= f.hidden_field :quantity, { :value => 1 } %>
+          <%= f.submit "Add to Order" %>
+        <% end %>
+      <% elsif current_order %>
+        <%= button_to "Remove from Order", {:controller => :order_items, :action => 'destroy', :id => current_order_item(item).id }, :method => :delete %>
+      <% end %>
+
+      <% if logged_in? && admin? %>
+        <%= link_to 'Edit', edit_item_path(item) %>
+        | <%= link_to 'Delete', item_path(item), method: :delete, data: { confirm: 'Are you sure you want to delete this item from the menu?'} %>
+      <% end %>
+    </div>
+  </div>
+</div>
 

@@ -1,15 +1,8 @@
 
 <!-- change this to render each category separately -->
-<!-- <div id="menu-container">
-  <ul id="item-list" style="list-style-type:none"> -->
-  <div class="row">
-    <%= render @items %>
-  </div>
-<!--   </ul>
-</div> -->
-
-
-
+<div class="row">
+  <%= render @items %>
+</div>
 
 <% if logged_in? && admin? %>
   <%= link_to 'Add an Item to the Menu', new_item_path %>
