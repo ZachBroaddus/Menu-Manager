@@ -1,11 +1,16 @@
 
 <!-- change this to render each category separately -->
-<div id="menu-container">
-  <h1>Menu</h1>
-  <ul id="item-list" style="list-style-type:none">
+<!-- <div id="menu-container">
+  <ul id="item-list" style="list-style-type:none"> -->
+  <div class="row">
     <%= render @items %>
-  </ul>
-</div>
+  </div>
+<!--   </ul>
+</div> -->
+
+
+
+
 <% if logged_in? && admin? %>
   <%= link_to 'Add an Item to the Menu', new_item_path %>
 <% end %>
