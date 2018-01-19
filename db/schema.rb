@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 20180110225843) do
     t.string "name", null: false
     t.string "description", null: false
     t.string "category", null: false
+    t.string "image_url", default: "default-cat.jpg"
     t.decimal "price", precision: 12, scale: 3, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
