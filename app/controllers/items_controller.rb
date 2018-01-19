@@ -3,7 +3,11 @@ class ItemsController < ApplicationController
   before_action :redirect_unless_logged_in_admin, except: [:index]
 
   def index
-    @items = Item.order(:category)
+    @entrees = Item.where(category: "entree")
+    @appetizers = Item.where(category: "appetizer")
+    @desserts = Item.where(category: "dessert")
+    @beverages = Item.where(category: "beverage")
+
     @order_item = OrderItem.new
     @order = Order.new
   end
