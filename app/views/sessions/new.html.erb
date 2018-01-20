@@ -1,8 +1,12 @@
 <h2>Login</h2>
 
-<%= render partial: "shared/errors", locals: {errors: @errors} if @errors %>
-<%= form_with url: sessions_path, local: true do |f| %>
-  <%= f.text_field :email, placeholder: "Email" %>
-  <%= f.password_field :password, placeholder: "Password" %>
-  <%= submit_tag "Go" %>
-<% end %>
+<div class="container">
+  <div class="row">
+    <%= render partial: "shared/errors", locals: {errors: @errors} if @errors %>
+    <%= form_with url: sessions_path, local: true do |f| %>
+      <%= f.text_field :email, placeholder: "Email", class: 'form-control' %>
+      <%= f.password_field :password, placeholder: "Password", class: 'form-control' %>
+      <%= submit_tag "Go", class: 'btn btn-secondary top-margin' %>
+    <% end %>
+  </div>
+</div>
