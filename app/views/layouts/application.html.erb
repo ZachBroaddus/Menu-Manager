@@ -10,10 +10,10 @@
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
     <!-- Bootstrap core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Custom styles for this template -->
-    <link href="css/shop-homepage.css" rel="stylesheet">
-  </head>
+<!--     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+ -->    <!-- Custom styles for this template -->
+<!--     <link href="css/shop-homepage.css" rel="stylesheet">
+ -->  </head>
 
   <body>
     <!-- Navigation -->
@@ -51,7 +51,11 @@
     </nav>
 
     <% flash.each do |key, value| %>
-      <div class="alert alert-<%= key %>"><%= value %></div>
+      <div class="alert alert-danger" role="alert">
+        <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+        <span class="sr-only">Error:</span>
+        <%= value %>
+      </div>
     <% end %>
 
   <!-- Page Content -->
@@ -112,33 +116,15 @@
   </div>
   <!-- /.container -->
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     <br><br>
 
     <!-- Footer -->
-    <footer class="py-5 bg-dark">
+    <footer class="py-5 bg-dark <%= 'fixed' if current_page?('/confirm') %>">
       <div class="container">
         <p class="m-0 text-center text-white">Copyright &copy; Zach Broaddus 2017 | zach.broaddus@gmail.com</p>
       </div>
       <!-- /.container -->
     </footer>
-
-    <!-- Bootstrap core JavaScript -->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
   </body>
 </html>

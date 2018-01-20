@@ -24,7 +24,7 @@ class OrdersController < ApplicationController
     if current_order.status == "placed"
       session[:order_id] = nil
       redirect_to confirm_path
-    elsif current_order.tip_multiplier > 0
+    else
       @order = current_order
       @items_in_order = current_order.items
       render :show

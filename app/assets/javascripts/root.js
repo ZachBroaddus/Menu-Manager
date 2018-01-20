@@ -1,12 +1,4 @@
 $(document).ready(function() {
-  // $('.list-group').find('a').click(function(){
-  //     var $href = $(this).attr('href');
-  //     var $anchor = $('#'+$href).offset();
-  //     $('body').animate({ scrollTop: $anchor.top });
-  //     // window.scrollTo($anchor.left,$anchor.top);
-  //     return false;
-  // });
-
   // Select all links with hashes
   $('a[href*="#"]')
     // Remove links that don't actually link to anything

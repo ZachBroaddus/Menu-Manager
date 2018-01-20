@@ -1,8 +1,9 @@
 <li>
   <span class="item-info">
     <%= item_in_order.name %><br>
-    <%= item_in_order.description %><br>
-    <%= item_in_order.category %><br>
+    <% unless item_in_order.description == "" %>
+      <%= item_in_order.description %><br>
+    <% end %>
     $ <%= pretty_price(item_in_order.price) %><br>
 
     <div style="float:left;">
