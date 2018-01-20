@@ -14,7 +14,7 @@ class OrdersController < ApplicationController
 
   def show
     @order = current_order
-    @items_in_order = current_order.items
+    @items_in_order = current_order.items.order(:category)
   end
 
   def update

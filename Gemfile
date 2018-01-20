@@ -16,6 +16,7 @@ gem 'puma', '~> 3.7'
 gem 'sass-rails', '~> 5.0'
 
 gem 'bootstrap', '~> 4.0.0.beta3'
+gem 'font-awesome-sass'
 gem 'jquery-rails'
 
 # Use Uglifier as compressor for JavaScript assets

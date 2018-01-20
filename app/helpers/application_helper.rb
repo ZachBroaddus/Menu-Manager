@@ -37,4 +37,14 @@ module ApplicationHelper
     sprintf "%.2f", price
   end
 
+  def fixed_footer
+    if current_page?('/confirm')
+      'fixed'
+    elsif current_order
+      if current_page?(controller: 'orders', action: 'show', id: current_order.id) && current_order.items.count < 3
+        'fixed'
+      end
+    end
+  end
+
 end

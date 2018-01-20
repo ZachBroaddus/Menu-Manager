@@ -14,6 +14,8 @@
  */
 
 @import "bootstrap";
+@import "font-awesome-sprockets";
+@import "font-awesome";
 
 /*!
  * Start Bootstrap - Shop Homepage (https://startbootstrap.com/template-overviews/shop-homepage)
@@ -22,7 +24,7 @@
  */
 
 body {
-  padding-top: 54px;
+  padding-top: 70px;
 }
 
 @media (min-width: 992px) {
@@ -54,3 +56,17 @@ body {
   width: 100%;
   text-align: center;
 }
+
+.top-margin {
+  margin-top: 4px;
+}
+
+.left {
+  float:left;
+}
+
+.no-bullets {
+  list-style-type:none
+}
+
+

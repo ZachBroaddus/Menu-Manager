@@ -14,10 +14,10 @@
           <%= f.hidden_field :order_id, { :value => current_order.id } %>
           <%= f.hidden_field :item_id, { :value => item.id } %>
           <%= f.hidden_field :quantity, { :value => 1 } %>
-          <%= f.submit "Add to Order" %>
+          <%= f.submit 'Add to Order', class: 'btn btn-outline-primary' %>
         <% end %>
       <% elsif current_order %>
-        <%= button_to "Remove from Order", {:controller => :order_items, :action => 'destroy', :id => current_order_item(item).id }, :method => :delete %>
+        <%= button_to "Remove from Order", {:controller => :order_items, :action => 'destroy', :id => current_order_item(item).id }, :method => :delete, class: 'btn btn-outline-primary' %>
       <% end %>
 
       <% if logged_in? && admin? %>
