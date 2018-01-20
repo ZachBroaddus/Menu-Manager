@@ -38,12 +38,23 @@ module ApplicationHelper
   end
 
   def fixed_footer
-    if current_page?('/confirm') || current_page?(new_session_path) || current_page?(new_user_path)
+    if current_page?(confirm_path) || current_page?(new_session_path) || current_page?(new_user_path)
       'fixed-mobile'
+    elsif !current_page?(root_path)
+      if current_page?(not_found_path)
+        'fixed-mobile'
+      end
     elsif current_order
-      if current_page?(controller: 'orders', action: 'show', id: current_order.id) && current_order.items.count < 3
+      current_order_path = { controller: 'orders', action: 'show', id: current_order.id }
+      if current_page?(current_order_path) && current_order.items.count < 3
         'fixed'
       end
+    end
+  end
+
+  def flash_padding
+    if flash.any?
+      'less-padding'
     end
   end
 

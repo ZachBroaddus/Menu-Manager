@@ -12,9 +12,9 @@ Rails.application.routes.draw do
 
   root 'items#index'
 
-  get 'confirm', to: 'orders#confirm'
+  get 'confirm', to: 'orders#confirm', as: 'confirm'
   get 'logout', to: 'sessions#destroy'
 
-  get "*any", via: :all, to: "errors#not_found"
+  get "*any", via: :all, to: "errors#not_found", as: 'not_found'
 end
 
