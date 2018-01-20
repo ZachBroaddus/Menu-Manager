@@ -23,6 +23,7 @@
  * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-shop-homepage/blob/master/LICENSE)
  */
 
+// smaller screens
 body {
   padding-top: 70px;
 }
@@ -31,30 +32,42 @@ body {
   body {
     padding-top: 70px;
   }
+  .carousel_img {
+    width: auto;
+    height: 450px;
+    max-height: 450px;
+  }
+  .fixed {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+  }
 }
 
 .inline {
    display: inline;
 }
 
+.fixed-mobile {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+}
+
 .carousel_img {
   width: auto;
-  height: 450px;
-  max-height: 450px;
+  height: 230px;
+  max-height: 230px;
 }
 
 .card_img {
   width: auto;
   height: 200px;
   max-height: 200px;
-}
-
-.fixed {
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  text-align: center;
 }
 
 .top-margin {

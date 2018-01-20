@@ -38,8 +38,8 @@ module ApplicationHelper
   end
 
   def fixed_footer
-    if current_page?('/confirm')
-      'fixed'
+    if current_page?('/confirm') || current_page?(new_session_path) || current_page?(new_user_path)
+      'fixed-mobile'
     elsif current_order
       if current_page?(controller: 'orders', action: 'show', id: current_order.id) && current_order.items.count < 3
         'fixed'
