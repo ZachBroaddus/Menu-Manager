@@ -41,7 +41,7 @@ module ApplicationHelper
     if current_page?(confirm_path) || current_page?(new_session_path) || current_page?(new_user_path)
       'fixed-mobile'
     elsif !current_page?(root_path)
-      if current_page?(not_found_path)
+      if current_page?(not_found_path(request.original_url))
         'fixed-mobile'
       end
     elsif current_order
@@ -56,6 +56,10 @@ module ApplicationHelper
     if flash.any?
       'less-padding'
     end
+  end
+
+  def original_url
+    base_url + original_fullpath
   end
 
 end
