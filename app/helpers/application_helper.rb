@@ -38,7 +38,13 @@ module ApplicationHelper
   end
 
   def full_height
-    'full-height' unless current_page?(root_path)
+    if current_order
+      unless current_page?(order_path(current_order.id)) && current_order.items.count > 1 || current_page?(root_path)
+        'full-height'
+      end
+    elsif !current_page?(root_path)
+      'full-height'
+    end
   end
 
   def flash_padding

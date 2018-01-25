@@ -27,7 +27,7 @@ class OrdersController < ApplicationController
     else
       @order = current_order
       @items_in_order = current_order.items
-      render :show
+      redirect_to order_path(current_order.id)
     end
   end
 

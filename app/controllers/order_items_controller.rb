@@ -8,7 +8,7 @@ class OrderItemsController < ApplicationController
   def update
     order_item = OrderItem.find_by(id: params[:id])
     change_quantity(order_item)
-    redirect_to order_path
+    redirect_to order_path(current_order.id)
   end
 
   def destroy
