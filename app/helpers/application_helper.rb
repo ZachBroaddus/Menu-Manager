@@ -37,19 +37,8 @@ module ApplicationHelper
     sprintf "%.2f", price
   end
 
-  def fixed_footer
-    if current_page?(confirm_path) || current_page?(new_session_path) || current_page?(new_user_path)
-      'fixed-mobile'
-    elsif !current_page?(root_path)
-      if current_page?(not_found_path(request.original_url))
-        'fixed-mobile'
-      end
-    elsif current_order
-      current_order_path = { controller: 'orders', action: 'show', id: current_order.id }
-      if current_page?(current_order_path) && current_order.items.count < 3
-        'fixed'
-      end
-    end
+  def full_height
+    'full-height' unless current_page?(root_path)
   end
 
   def flash_padding
