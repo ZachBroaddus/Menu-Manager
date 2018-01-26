@@ -1,24 +1,15 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Menu-Manager is a custom built, mobile-first, responsive web app that could be used by restaurants or retailers to allow users to browse their menu/inventory, build, and submit an order. It includes add, update and delete privileges for the admin user that would allow the business to quickly make changes to their menu/inventory.
 
-Things you may want to cover:
+The app was built using Rails and Javascript/jQuery and also makes use of AJAX.
 
-* Ruby version
+This project is still in development. Upcoming features include:
 
-* System dependencies
+* more extensive use of jQuery and AJAX to further simplify and improve the user experience
 
-* Configuration
+* more extensive testing using Rspec and Capybara
 
-* Database creation
+* Continuous integration testing
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Deployment to Heroku
