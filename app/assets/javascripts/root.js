@@ -36,7 +36,29 @@ $(document).ready(function() {
       }
     });
 
+$('.js--add-to-order').click(function(event){
+  // event.preventDefault();
+  console.log('button clicked!');
 
+  $form = $(this);
+  data = $form.serialize();
+  method = $form.attr('method');
+  url = $form.attr('action');
+
+  $form.hide();
+  // $form.closest('.card-footer').find('.js--remove-from-order').show();
+
+  // $.ajax({
+  //   method: method,
+  //   data: data,
+  //   dataType: "JSON",
+  //   url: url
+  // }).done(function(response){
+  //   window.location = "/users/" + response.user_id;
+    // $('.js--remove-from-order').show();
+  // })
+
+});
 
 
 
