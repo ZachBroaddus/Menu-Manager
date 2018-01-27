@@ -14,6 +14,6 @@
 //= require popper
 //= require bootstrap-sprockets
 //= require rails-ujs
-//= root
+//= index
 //= require_tree .
 

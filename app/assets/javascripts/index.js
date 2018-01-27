@@ -36,8 +36,14 @@ $(document).ready(function() {
       }
     });
 
+  $('.card-footer').on('click', '.js--add-to-order', function(event){
+    console.log('add button clicked!');
+    $target = $(this);
+  });
 
-
-
+  $('.card-footer').on('click', '.js--remove-from-order', function(event){
+    console.log('remove button clicked!');
+    $target = $(this);
+  });
 
 });
