@@ -6,7 +6,7 @@ class OrderItemsController < ApplicationController
 
     respond_to do |format|
       format.html { redirect_to root_path }
-      format.js { render layout: false }
+      format.js
     end
   end
 
@@ -18,8 +18,14 @@ class OrderItemsController < ApplicationController
 
   def destroy
     order_item = current_order.order_items.find_by(id: params[:id])
+    @item = order_item.item
     order_item.destroy
-    redirect_to root_path
+    @order_item = OrderItem.new
+
+    respond_to do |format|
+      format.html { redirect_to root_path }
+      format.js
+    end
   end
 
   private

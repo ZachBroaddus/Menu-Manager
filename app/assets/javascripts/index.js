@@ -36,30 +36,14 @@ $(document).ready(function() {
       }
     });
 
-$('.js--add-to-order').click(function(event){
-  // event.preventDefault();
-  console.log('button clicked!');
+  $('.card-footer').on('click', '.js--add-to-order', function(event){
+    console.log('add button clicked!');
+    $target = $(this);
+  });
 
-  $form = $(this);
-  data = $form.serialize();
-  method = $form.attr('method');
-  url = $form.attr('action');
-
-  $form.hide();
-  // $form.closest('.card-footer').find('.js--remove-from-order').show();
-
-  // $.ajax({
-  //   method: method,
-  //   data: data,
-  //   dataType: "JSON",
-  //   url: url
-  // }).done(function(response){
-  //   window.location = "/users/" + response.user_id;
-    // $('.js--remove-from-order').show();
-  // })
-
-});
-
-
+  $('.card-footer').on('click', '.js--remove-from-order', function(event){
+    console.log('remove button clicked!');
+    $target = $(this);
+  });
 
 });

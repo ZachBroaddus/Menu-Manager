@@ -1,1 +1,1 @@
-<%= button_to "Remove from Order", {:controller => :order_items, :action => 'destroy', :id => current_order_item(item).id }, :method => :delete, class: 'btn btn-outline-primary js--remove-from-order' %>
+<%= button_to "Remove from Order", { :controller => :order_items, :action => 'destroy', :id => current_order_item(item).id }, form: { "data-type" => "json" }, :method => :delete, class: 'btn btn-outline-primary js--remove-from-order', remote: true %>
