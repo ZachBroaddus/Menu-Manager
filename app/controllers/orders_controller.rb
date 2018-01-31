@@ -42,7 +42,8 @@ class OrdersController < ApplicationController
 
   def destroy
     current_order.destroy!
-    @current_order = nil
+    # this line may or may not be useless
+    current_order = nil
     session[:order_id] = nil
     respond_to do |format|
       format.html { redirect_to root_path }
