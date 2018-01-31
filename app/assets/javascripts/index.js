@@ -36,6 +36,7 @@ $(document).ready(function() {
       }
     });
 
+// maybe keep this?
   var orderId = $("#js--menu").data("order-id");
   console.log(orderId);
   if (orderId === "") {

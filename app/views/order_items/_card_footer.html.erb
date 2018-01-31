@@ -1,4 +1,4 @@
-<% if item_not_in_cart?(item) %>
+<% if current_order? && item_not_in_cart?(item) %>
   <%= form_for @order_item, url: order_items_path(@order_item).sub(/\.[\w]*\z/, ''), method: :post, remote: true do |f| %>
   <%= f.hidden_field :order_id, { :value => current_order.id } %>
   <%= f.hidden_field :item_id, { :value => item.id } %>

@@ -1,2 +1,21 @@
-$('.card-footer').hide();
+// $('.card-footer').hide();
+$('#js--appetizers').html("<%= escape_javascript(render :partial => 'items/item', :collection => @appetizers, :as => :item) %>");
+$('#js--entrees').html("<%= escape_javascript(render :partial => 'items/item', :collection => @entrees, :as => :item) %>");
+$('#js--beverages').html("<%= escape_javascript(render :partial => 'items/item', :collection => @beverages, :as => :item) %>");
+$('#js--desserts').html("<%= escape_javascript(render :partial => 'items/item', :collection => @desserts, :as => :item) %>");
 $('#order-control-buttons').html("<%= escape_javascript(render partial: 'orders/order_control_buttons') %>");
+
+$('.card-footer').on('click', '.js--add-to-order', function(event){
+  console.log('add button clicked!');
+  $target = $(this);
+});
+
+$('.card-footer').on('click', '.js--remove-from-order', function(event){
+  console.log('remove button clicked!');
+  $target = $(this);
+});
+
+var orderId = $("#js--menu").data("order-id");
+if (orderId === "") {
+  $('.card-footer').hide();
+};

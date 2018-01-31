@@ -1,6 +1,12 @@
 class OrdersController < ApplicationController
 
   def create
+    @entrees = Item.where(category: "entree")
+    @appetizers = Item.where(category: "appetizer")
+    @desserts = Item.where(category: "dessert")
+    @beverages = Item.where(category: "beverage")
+    @order_item = OrderItem.new
+
     if logged_in? != true
       respond_to do |format|
         format.html { redirect_to new_session_path, alert: "Please sign in." }
@@ -41,6 +47,12 @@ class OrdersController < ApplicationController
   end
 
   def destroy
+    @entrees = Item.where(category: "entree")
+    @appetizers = Item.where(category: "appetizer")
+    @desserts = Item.where(category: "dessert")
+    @beverages = Item.where(category: "beverage")
+    @order_item = OrderItem.new
+
     current_order.destroy!
     # this line may or may not be useless
     current_order = nil
