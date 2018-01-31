@@ -1,0 +1,15 @@
+<% if item_not_in_cart?(item) %>
+  <%= form_for @order_item, url: order_items_path(@order_item).sub(/\.[\w]*\z/, ''), method: :post, remote: true do |f| %>
+  <%= f.hidden_field :order_id, { :value => current_order.id } if current_order? %>
+  <%= f.hidden_field :item_id, { :value => item.id } %>
+  <%= f.hidden_field :quantity, { :value => 1 } %>
+  <%= f.submit 'Add to Order', class: 'btn btn-outline-primary js--add-to-order' %>
+  <% end %>
+<% elsif current_order? %>
+  <%= button_to "Remove from Order", { :controller => :order_items, :action => 'destroy', :id => current_order_item(item).id }, form: { "data-type" => "json" }, :method => :delete, class: 'btn btn-outline-primary js--remove-from-order', remote: true %>
+<% end %>
+
+<% if logged_in? && admin? %>
+  <%= link_to 'Edit', edit_item_path(item) %>
+  | <%= link_to 'Delete', item_path(item), method: :delete, data: { confirm: 'Are you sure you want to delete this item from the menu?'} %>
+<% end %>

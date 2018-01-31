@@ -1,8 +1,8 @@
 class OrderItemsController < ApplicationController
 
   def create
-    order_item = OrderItem.create!(order_item_params)
-    @item = order_item.item
+    @order_item = OrderItem.create!(order_item_params)
+    @item = @order_item.item
 
     respond_to do |format|
       format.html { redirect_to root_path }

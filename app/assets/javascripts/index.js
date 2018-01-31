@@ -36,6 +36,12 @@ $(document).ready(function() {
       }
     });
 
+  var orderId = $("#js--menu").data("order-id");
+  console.log(orderId);
+  if (orderId === "") {
+    $('.card-footer').hide();
+  };
+
   $('.card-footer').on('click', '.js--add-to-order', function(event){
     console.log('add button clicked!');
     $target = $(this);
@@ -44,6 +50,22 @@ $(document).ready(function() {
   $('.card-footer').on('click', '.js--remove-from-order', function(event){
     console.log('remove button clicked!');
     $target = $(this);
+  });
+
+  $('.col-lg-9').on('click', '.js--start-order', function(event){
+    // event.preventDefault();
+    console.log('start order button click detected!');
+    // $('.js--start-order').hide();
+    // not on the page, can't show. need to render partial from controller
+    // $('.js--cancel-order').show();
+  });
+
+  $('.col-lg-9').on('click', '.js--cancel-order', function(event){
+    // event.preventDefault();
+    console.log('cancel order button click detected!');
+    // $('.js--cancel-order').hide();
+    // not on the page, can't show. need to render partial from controller
+    // $('.js--start-order').show();
   });
 
 });

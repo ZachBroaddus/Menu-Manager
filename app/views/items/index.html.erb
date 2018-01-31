@@ -22,10 +22,6 @@
 <% if logged_in? && admin? %>
   <%= link_to 'Add an Item to the Menu', new_item_path %><br><br>
 <% end %>
-<% unless current_order %>
-  <%= button_to "Start Your Order", {:controller => :orders, :action => 'create'}, :method => :post, class: 'btn btn-primary' %>
-<% else %>
-  <%= button_to "Review and Confirm Order", {:controller => :orders, :action => 'show', :id => current_order.id }, :method => :get, class: 'btn btn-primary' %><br>
-    <%= button_to "Cancel Order", {:controller => :orders,
-  :action => 'destroy', :id => current_order.id }, :method => :delete, class: 'btn btn-secondary' %>
-<% end %>
+<div id="order-control-buttons">
+  <%= render :partial => "orders/order_control_buttons" %>
+</div>
