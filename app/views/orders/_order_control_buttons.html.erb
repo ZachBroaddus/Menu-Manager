@@ -1,0 +1,6 @@
+<% unless current_order? %>
+  <%= button_to "Start Your Order", { :controller => :orders, :action => 'create' }, :method => :post, class: 'btn btn-primary js--start-order', remote: true %>
+<% else %>
+  <%= button_to "Review and Confirm Order", {:controller => :orders, :action => 'show', :id => current_order.id }, :method => :get, class: 'btn btn-primary' %><br>
+  <%= button_to "Cancel Order", { :controller => :orders, :action => 'destroy', :id => current_order.id }, :method => :delete, class: 'btn btn-secondary js--cancel-order', remote: true %>
+<% end %>

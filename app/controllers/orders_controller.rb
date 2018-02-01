@@ -1,13 +1,25 @@
 class OrdersController < ApplicationController
 
   def create
+    @entrees = Item.where(category: "entree")
+    @appetizers = Item.where(category: "appetizer")
+    @desserts = Item.where(category: "dessert")
+    @beverages = Item.where(category: "beverage")
+    @order_item = OrderItem.new
+
     if logged_in? != true
-      redirect_to new_session_path, alert: "Please sign in."
+      respond_to do |format|
+        format.html { redirect_to new_session_path, alert: "Please sign in." }
+        format.js { render js: "window.location='#{new_session_path.to_s}'" }
+      end
     else
-      unless current_order
+      unless current_order?
         @order = Order.create!(user_id: current_user.id)
         session[:order_id] = @order.id
-        redirect_to root_path
+        respond_to do |format|
+          format.html { redirect_to root_path }
+          format.js
+        end
       end
     end
   end
@@ -35,9 +47,20 @@ class OrdersController < ApplicationController
   end
 
   def destroy
-    current_order.destroy
+    @entrees = Item.where(category: "entree")
+    @appetizers = Item.where(category: "appetizer")
+    @desserts = Item.where(category: "dessert")
+    @beverages = Item.where(category: "beverage")
+    @order_item = OrderItem.new
+
+    current_order.destroy!
+    # this line may or may not be useless
+    current_order = nil
     session[:order_id] = nil
-    redirect_to root_path
+    respond_to do |format|
+      format.html { redirect_to root_path }
+      format.js
+    end
   end
 
   private

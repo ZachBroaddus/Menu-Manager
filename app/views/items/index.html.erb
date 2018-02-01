@@ -1,31 +1,27 @@
 
 <h3 id="appetizers">Appetizers:</h3>
-<div class="row">
+<div id="js--appetizers" class="row">
   <%= render :partial => "item", :collection => @appetizers, :as => :item %>
 </div>
 
 <h3 id="entrees">Entrees:</h3>
-<div class="row">
+<div id="js--entrees" class="row">
   <%= render :partial => "item", :collection => @entrees, :as => :item %>
 </div>
 
 <h3 id="beverages">Beverages:</h3>
-<div class="row">
+<div id="js--beverages" class="row">
   <%= render :partial => "item", :collection => @beverages, :as => :item %>
 </div>
 
 <h3 id="desserts">Desserts:</h3>
-<div class="row">
+<div id="js--desserts" class="row">
   <%= render :partial => "item", :collection => @desserts, :as => :item %>
 </div>
 
 <% if logged_in? && admin? %>
   <%= link_to 'Add an Item to the Menu', new_item_path %><br><br>
 <% end %>
-<% unless current_order %>
-  <%= button_to "Start Your Order", {:controller => :orders, :action => 'create'}, :method => :post, class: 'btn btn-primary' %>
-<% else %>
-  <%= button_to "Review and Confirm Order", {:controller => :orders, :action => 'show', :id => current_order.id }, :method => :get, class: 'btn btn-primary' %><br>
-    <%= button_to "Cancel Order", {:controller => :orders,
-  :action => 'destroy', :id => current_order.id }, :method => :delete, class: 'btn btn-secondary' %>
-<% end %>
+<div id="order-control-buttons">
+  <%= render :partial => "orders/order_control_buttons" %>
+</div>

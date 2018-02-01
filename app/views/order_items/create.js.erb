@@ -1,1 +1,1 @@
-$target.closest('.card-footer').html("<%= escape_javascript(render partial: 'order_items/remove_button', locals: { item: @item }) %>");
+$target.closest('.card-footer').html("<%= escape_javascript(render partial: 'order_items/card_footer', locals: { item: @item, order_item: @order_item }) %>");

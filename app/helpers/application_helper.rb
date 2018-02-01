@@ -21,12 +21,23 @@ module ApplicationHelper
     end
   end
 
+  def current_order?
+    current_order.id != nil
+  end
+
   def current_order
-    @current_order ||= Order.find_by(id: session[:order_id])
+    if session[:order_id]
+      Order.find_by(id: session[:order_id])
+    else
+      Order.new
+    end
   end
 
   def item_not_in_cart?(item)
-    !current_order.items.include?(item)
+    if current_order?
+      return !current_order.items.include?(item)
+    end
+    true
   end
 
   def current_order_item(item)
@@ -38,7 +49,7 @@ module ApplicationHelper
   end
 
   def full_height
-    if current_order
+    if current_order?
       unless current_page?(order_path(current_order.id)) && current_order.items.count > 1 || current_page?(root_path)
         'full-height'
       end

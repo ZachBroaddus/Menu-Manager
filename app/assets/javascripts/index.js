@@ -36,14 +36,38 @@ $(document).ready(function() {
       }
     });
 
+  // var orderId = $("#js--menu").data("order-id");
+  // if (orderId === "") {
+  //   $('.card-footer').hide();
+  // };
+
   $('.card-footer').on('click', '.js--add-to-order', function(event){
-    console.log('add button clicked!');
+    // console.log('add button clicked!');
     $target = $(this);
   });
 
   $('.card-footer').on('click', '.js--remove-from-order', function(event){
-    console.log('remove button clicked!');
+    // console.log('remove button clicked!');
     $target = $(this);
   });
+
+  var scrollToTop = function() {
+    // $("html, body").animate({ scrollTop: 0 }, "slow");
+    $('html, body').animate({ scrollTop: 0 }, 1000);
+    return false;
+  };
+
+  $('.col-lg-9').on('click', '.js--start-order', function(event){
+    // console.log('start order button click detected!');
+    scrollToTop();
+  });
+
+  // $('.col-lg-9').on('click', '.js--cancel-order', function(event){
+  //   // event.preventDefault();
+  //   console.log('cancel order button click detected!');
+  //   // $('.js--cancel-order').hide();
+  //   // not on the page, can't show. need to render partial from controller
+  //   // $('.js--start-order').show();
+  // });
 
 });
