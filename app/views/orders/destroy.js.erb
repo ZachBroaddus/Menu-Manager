@@ -1,4 +1,3 @@
-// $('.card-footer').hide();
 $('#js--appetizers').html("<%= escape_javascript(render :partial => 'items/item', :collection => @appetizers, :as => :item) %>");
 $('#js--entrees').html("<%= escape_javascript(render :partial => 'items/item', :collection => @entrees, :as => :item) %>");
 $('#js--beverages').html("<%= escape_javascript(render :partial => 'items/item', :collection => @beverages, :as => :item) %>");
@@ -15,7 +14,9 @@ $('.card-footer').on('click', '.js--remove-from-order', function(event){
   $target = $(this);
 });
 
-var orderId = $("#js--menu").data("order-id");
-if (orderId === "") {
-  $('.card-footer').hide();
-};
+// var orderId = $("#js--menu").data("order-id");
+// if (orderId === "") {
+//   $('.card-footer').hide();
+// };
+
+// $('.card-footer').hide();

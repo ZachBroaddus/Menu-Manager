@@ -1,4 +1,3 @@
-// $('.card-footer').show();
 $('#js--appetizers').html("<%= escape_javascript(render :partial => 'items/item', :collection => @appetizers, :as => :item) %>");
 $('#js--entrees').html("<%= escape_javascript(render :partial => 'items/item', :collection => @entrees, :as => :item) %>");
 $('#js--beverages').html("<%= escape_javascript(render :partial => 'items/item', :collection => @beverages, :as => :item) %>");
@@ -14,3 +13,8 @@ $('.card-footer').on('click', '.js--remove-from-order', function(event){
   console.log('remove button clicked!');
   $target = $(this);
 });
+
+// $("a[href='#top']").click(function() {
+//   $("html, body").animate({ scrollTop: 0 }, "slow");
+//   return false;
+// });
