@@ -14,10 +14,12 @@ module ApplicationHelper
 
   def redirect_unless_logged_in_admin
     if logged_in? != true
-      redirect_to new_session_path, alert: "Please sign in."
+      flash[:error] = ["Please sign in."]
+      redirect_to new_session_path
       return
     elsif admin? != true
-      redirect_to root_path, alert: "You are not authorized to do that."
+      flash[:error] = ["You are not authorized to do that."]
+      redirect_to root_path
     end
   end
 
