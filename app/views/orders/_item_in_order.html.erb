@@ -2,16 +2,17 @@
   <span class="item-info">
     <strong><%= item_in_order.name %></strong><br>
     $ <%= pretty_price(item_in_order.price) %><br>
+    <div class="quantity-container">
+      <div class="left">
+        <%= button_to "-", {:controller => :order_items, :action => 'update', :id => current_order_item(item_in_order).id }, :method => :put, data: (current_order_item(item_in_order).quantity <= 1 ? { confirm:  "Are you sure you want to remove this item from your order?"} : nil), params: {'change_type' => 'decrement'}, class: 'btn btn-outline-primary btn-sm' %>
+      </div>
 
-    <div class="left">
-      <%= button_to "-", {:controller => :order_items, :action => 'update', :id => current_order_item(item_in_order).id }, :method => :put, data: (current_order_item(item_in_order).quantity <= 1 ? { confirm:  "Are you sure you want to remove this item from your order?"} : nil), params: {'change_type' => 'decrement'}, class: 'btn btn-outline-primary btn-sm' %>
+      <div class="top-margin left quantity">
+        <span>&nbsp;<%= current_order_item(item_in_order).quantity %>&nbsp;</span>
+      </div>
+      <div class="left">
+        <%= button_to "+", {:controller => :order_items, :action => 'update', :id => current_order_item(item_in_order).id }, :method => :put, params: {'change_type' => 'increment'}, class: 'btn btn-outline-primary btn-sm' %>
+      </div><br>
     </div>
-
-    <div class="top-margin left">
-      <span>&nbsp;<%= current_order_item(item_in_order).quantity %>&nbsp;</span>
-    </div>
-    <div class="left">
-      <%= button_to "+", {:controller => :order_items, :action => 'update', :id => current_order_item(item_in_order).id }, :method => :put, params: {'change_type' => 'increment'}, class: 'btn btn-outline-primary btn-sm' %>
-    </div><br>
   </span>
 </li><br>

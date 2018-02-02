@@ -79,6 +79,15 @@ footer {
   list-style-type:none
 }
 
+.quantity-container {
+  margin-top: 5px;
+}
+
+.quantity {
+  margin-left: 2px;
+  margin-right: 2px;
+}
+
 // larger screens
 @media (min-width: 992px) {
   body {
@@ -92,5 +101,14 @@ footer {
     width: auto;
     height: 450px;
     max-height: 450px;
+  }
+
+  .quantity-container {
+    margin-top: 5px;
+  }
+
+  .quantity {
+    margin-left: 2px;
+    margin-right: 2px;
   }
 }

@@ -50,7 +50,7 @@ module ApplicationHelper
 
   def full_height
     if current_order?
-      unless current_page?(order_path(current_order.id)) && current_order.items.count > 1 || current_page?(root_path)
+      unless current_page?(order_path(current_order.id)) && current_order.items.count >= 1 || current_page?(root_path)
         'full-height'
       end
     elsif !current_page?(root_path)
@@ -61,6 +61,14 @@ module ApplicationHelper
   def flash_padding
     if flash.any?
       'less-padding'
+    end
+  end
+
+  def adjust_spacing
+    if current_order.tip_multiplier > 0
+      '<br><br><br>'
+    else
+      '<br>'
     end
   end
 

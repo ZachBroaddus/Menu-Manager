@@ -1,8 +1,9 @@
 <% if current_order.items.count > 0 %>
-  <h1>Please review and confirm your order</h1>
+  <h3>Please review and confirm your order</h3>
     <ul id="item-list" class="no-bullets">
       <%= render :partial => 'item_in_order', :collection => @items_in_order %>
-    </ul><br><br>
+    </ul><br><br><br>
+  <%= raw adjust_spacing %>
   <h3>Subtotal: $<%= pretty_price(current_order.total) %></h3>
   <% if current_order.tip_multiplier == 0 %>
     <h5>Add a tip?</h5>
@@ -24,12 +25,11 @@
         <%= f.hidden_field :tip_multiplier, { :value => 0.2 } %>
         <%= f.submit "20%", class: 'btn btn-outline-secondary' %>
       <% end %>
-    </div><br><br><br>
+    </div><br><br>
   <% end %>
 
   <% unless current_order.tip_multiplier == 0.0 %>
     <h5> + Tip: $<%= pretty_price(current_order.tip) %></h5>
-    <br>
   <% end %>
   <h3>Total (including tip): <%= pretty_price(current_order.total_with_tip) || pretty_price(current_order.total) %></h3>
   <div class="left">
@@ -47,7 +47,7 @@
     </div><br>
   <% end %>
 <% else %>
-  <h1>Not hungry? You haven't ordered anything, yet.</h1>
+  <h3>Not hungry? You haven't ordered anything, yet.</h3>
 <% end %>
 
 
