@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
       load_order_in_progress(@user)
       redirect_to root_path
     else
-      @errors = ["Your password/email combination are incorrect."]
+      flash.now[:error] = ["Your password/email combination are incorrect."]
       render :new
     end
   end

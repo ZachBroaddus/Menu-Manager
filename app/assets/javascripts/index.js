@@ -41,6 +41,13 @@ $(document).ready(function() {
   //   $('.card-footer').hide();
   // };
 
+  // timeout for flash error messages
+  $(function() {
+    setTimeout(function(){
+      $('.alert').slideUp(500);
+    }, 4000);
+  });
+
   $('.card-footer').on('click', '.js--add-to-order', function(event){
     // console.log('add button clicked!');
     $target = $(this);

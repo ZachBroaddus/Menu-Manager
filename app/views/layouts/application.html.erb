@@ -50,13 +50,7 @@
       </div>
     </nav>
 
-    <% flash.each do |key, value| %>
-      <div class="alert alert-danger" role="alert">
- <!--        <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> -->
-        <span class="sr-only">Error:</span>
-        <%= value %>
-      </div>
-    <% end %>
+    <%= render partial: "shared/errors", locals: { errors: @errors } if !flash.empty? %>
 
   <!-- Page Content -->
   <div id="js--menu" class="container" data-order-id="<%= current_order.id %>">
