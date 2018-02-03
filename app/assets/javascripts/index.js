@@ -36,16 +36,16 @@ $(document).ready(function() {
       }
     });
 
-  // var orderId = $("#js--menu").data("order-id");
-  // if (orderId === "") {
-  //   $('.card-footer').hide();
-  // };
+  // scroll to appetizer list on click of order button if logged in
+  var scrollToAppetizers = function() {
+    $('html, body').animate({ scrollTop: $("#appetizers").offset().top - 60 }, 1000);
+    return false;
+  };
 
-  // timeout for flash error messages
-  $(function() {
-    setTimeout(function(){
-      $('.alert').slideUp(500);
-    }, 4000);
+  $('.col-lg-9').on('click', '.js--start-order', function(event){
+    if (Number.isInteger($('#html').data('session'))) {
+      scrollToAppetizers();
+    }
   });
 
   $('.card-footer').on('click', '.js--add-to-order', function(event){
@@ -58,23 +58,24 @@ $(document).ready(function() {
     $target = $(this);
   });
 
-  var scrollToTop = function() {
-    // $("html, body").animate({ scrollTop: 0 }, "slow");
-    $('html, body').animate({ scrollTop: 0 }, 1000);
-    return false;
-  };
 
-  $('.col-lg-9').on('click', '.js--start-order', function(event){
-    // console.log('start order button click detected!');
-    scrollToTop();
+  // timeout for flash error messages
+  $(function() {
+    setTimeout(function(){
+      $('.alert').slideUp(500);
+    }, 4000);
   });
 
-  // $('.col-lg-9').on('click', '.js--cancel-order', function(event){
-  //   // event.preventDefault();
-  //   console.log('cancel order button click detected!');
-  //   // $('.js--cancel-order').hide();
-  //   // not on the page, can't show. need to render partial from controller
-  //   // $('.js--start-order').show();
-  // });
+  // fix html padding after flash notice disappears
+  var flashNotice = document.getElementById('flash-alert');
 
+  var observer = new MutationObserver(function(mutations) {
+     if (document.contains(flashNotice)) {
+          console.log("There's a flash notice in the DOM!");
+          document.getElementById("html").style.paddingTop = "14px";
+          observer.disconnect();
+      }
+  });
+
+  observer.observe(document, {attributes: false, childList: true, characterData: false, subtree:true});
 });

@@ -51,11 +51,12 @@ module ApplicationHelper
   end
 
   def full_height
+    url = request.path_info
     if current_order?
-      unless current_page?(order_path(current_order.id)) && current_order.items.count >= 1 || current_page?(root_path)
+      unless current_page?(order_path(current_order.id)) && current_order.items.count >= 1 || current_page?(root_path) || url.include?('items')
         'full-height'
       end
-    elsif !current_page?(root_path)
+    elsif !current_page?(root_path) && !url.include?('items')
       'full-height'
     end
   end

@@ -2,7 +2,6 @@
 
 <div class="container">
   <div class="row">
-    <%= render partial: "shared/errors", locals: {errors: @errors} if @errors %>
     <%= form_with url: sessions_path, local: true do |f| %>
       <div class="form-group">
         <%= f.text_field :email, placeholder: "Email", class: 'form-control' %>

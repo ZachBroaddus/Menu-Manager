@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="<%= full_height %>">
+<html id="html" class="<%= full_height %>" data-session="<%= session[:user_id] %>">
   <head>
     <title>Menu Manager</title>
     <%= csrf_meta_tags %>
@@ -12,6 +12,7 @@
   </head>
 
   <body class="<%= flash_padding %>">
+
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
       <div class="container">
