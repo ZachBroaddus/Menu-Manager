@@ -20,6 +20,8 @@ gem 'bootstrap', '~> 4.0.0.beta3'
 gem 'font-awesome-sass'
 gem 'jquery-rails'
 gem 'bundler', '~> 1.14.6'
+gem "paperclip", "~> 5.2.1"
+gem 'aws-sdk', '~> 2.3'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
