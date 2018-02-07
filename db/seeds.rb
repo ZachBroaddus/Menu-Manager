@@ -23,10 +23,10 @@ Item.create!(name: "'Role Play", description: "Escarole braised in white wine wi
 #Beverages
 Item.create!(name: "Roast Co. Coffee", description: "A Bottomless Cup", category: "beverage", price: 3.5, image_url: "coffee.jpg")
 Item.create!(name: "Hand-Squeezed OJ", description: "California's finest, 8 ounces", category: "beverage", price: 5, image_url: "orange-juice.jpg")
-Item.create!(name: "Organic Cold-Brewed Iced Tea", description: "", category: "beverage", price: 4, image_url: "iced-tea.jpg")
+Item.create!(name: "Organic Cold-Brewed Iced Tea", description: "A Bottomless Glass", category: "beverage", price: 4, image_url: "iced-tea.jpg")
 
 #Desserts
-Item.create!(name: "Crème Brûlée", description: "", category: "dessert", price: 8, image_url: "creme-brulee.jpg")
+Item.create!(name: "Crème Brûlée", description: "custard with a crust of caramelized sugar", category: "dessert", price: 8, image_url: "creme-brulee.jpg")
 Item.create!(name: "Bread Pudding", description: "crème anglaise, raspberry sauce", category: "dessert", price: 8, image_url: "bread-pudding.jpg")
 Item.create!(name: "Pecan Tarte", description: "vanilla ice cream, chocolate sauce", category: "dessert", price: 10, image_url: "pecan-tarte.jpg")
 Item.create!(name: "Flourless Chocolate Cake", description: "raspberry sauce, whip’d cream", category: "dessert", price: 10, image_url: "flourless-chocolate-cake.jpg")

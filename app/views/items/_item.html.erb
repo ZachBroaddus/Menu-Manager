@@ -1,6 +1,6 @@
 <div class="col-lg-4 col-md-6 mb-4">
   <div class="card h-100">
-    <%= image_tag item.image_url, class: "card_img" %>
+      <%= image_tag item.image.url(:large), class: "card_img" %>
     <div class="card-body">
       <h4 class="card-title">
         <%= item.name %>
