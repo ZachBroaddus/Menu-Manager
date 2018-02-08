@@ -15,7 +15,7 @@
           Must be at least 8 characters long.
         </small>
       </div>
-      <%= submit_tag "Confirm", class: 'btn btn-secondary top-margin' %>
+      <%= f.button "Confirm", class: 'btn btn-secondary top-margin', data: { disable_with: "<i class='fas fa-spinner fa-pulse'></i> Signing in..." } %>
     <% end %>
   </div>
 </div>

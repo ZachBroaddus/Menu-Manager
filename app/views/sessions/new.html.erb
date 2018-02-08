@@ -9,7 +9,7 @@
       <div class="form-group">
         <%= f.password_field :password, placeholder: "Password", class: 'form-control' %>
       </div>
-      <%= submit_tag "Go", class: 'btn btn-secondary top-margin' %>
+      <%= f.button "Go", class: 'btn btn-secondary top-margin', data: { disable_with: "<i class='fas fa-spinner fa-pulse'></i> Signing in..." } %>
     <% end %>
   </div>
 </div>

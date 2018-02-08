@@ -19,5 +19,9 @@
     <label for="item-image">Image</label><br>
     <%= f.file_field :image, placeholder: "Select File" %>
   </div>
-    <%= f.submit "Confirm and Add", class: 'btn btn-primary' %>
+    <% if current_page?(new_item_path) %>
+      <%= f.button "Confirm and Add", class: 'btn btn-primary', data: { disable_with: "<i class='fas fa-spinner fa-pulse'></i> Adding item..." } %>
+    <% else %>
+      <%= f.button "Confirm Changes", class: 'btn btn-primary', data: { disable_with: "<i class='fas fa-spinner fa-pulse'></i> Saving changes..." } %>
+    <% end %>
 <% end %>
