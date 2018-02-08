@@ -79,4 +79,8 @@ module ApplicationHelper
     base_url + original_fullpath
   end
 
+  def greeting_animation
+    return "animated bounceInLeft" if current_page?(root_path)
+  end
+
 end

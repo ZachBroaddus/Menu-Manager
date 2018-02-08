@@ -100,8 +100,8 @@ $(document).ready(function() {
   observer.observe(document, {attributes: false, childList: true, characterData: false, subtree:true});
 
   // do something after animation is done
-  // $('#greeting').one(animationEnd, function(){
-  //   // $('#greeting').addClass("animated bounceInLeft");
+  // $('#js--greeting').one(animationEnd, function(){
+  //   // $('#js--greeting').addClass("animated bounceInLeft");
   //   $('#js--food-categories').addClass("animated fadeIn");
   // });
 
