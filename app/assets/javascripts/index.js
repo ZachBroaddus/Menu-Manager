@@ -1,4 +1,20 @@
 $(document).ready(function() {
+  var animationEnd = (function(el) {
+    var animations = {
+      animation: 'animationend',
+      OAnimation: 'oAnimationEnd',
+      MozAnimation: 'mozAnimationEnd',
+      WebkitAnimation: 'webkitAnimationEnd',
+    };
+
+    for (var t in animations) {
+      if (el.style[t] !== undefined) {
+        return animations[t];
+      }
+    }
+  })(document.createElement('div'));
+
+
   // Select all links with hashes
   $('a[href*="#"]')
     // Remove links that don't actually link to anything
@@ -42,22 +58,26 @@ $(document).ready(function() {
     return false;
   };
 
-  $('.col-lg-9').on('click', '.js--start-order', function(event){
+  $('.col-lg-9').on('click', '.js--start-order', function(){
     if (Number.isInteger($('#html').data('session'))) {
       scrollToAppetizers();
     }
   });
 
-  $('.card-footer').on('click', '.js--add-to-order', function(event){
+  // $('.col-lg-9').on('click', '.js--cancel-order', function(){
+  //   $('.js--review-order').fadeOut(800);
+  //   $('.js--cancel-order').fadeOut(800);
+  // });
+
+  $('.card-footer').on('click', '.js--add-to-order', function(){
     // console.log('add button clicked!');
     $target = $(this);
   });
 
-  $('.card-footer').on('click', '.js--remove-from-order', function(event){
+  $('.card-footer').on('click', '.js--remove-from-order', function(){
     // console.log('remove button clicked!');
     $target = $(this);
   });
-
 
   // timeout for flash error messages
   $(function() {
@@ -78,4 +98,20 @@ $(document).ready(function() {
   });
 
   observer.observe(document, {attributes: false, childList: true, characterData: false, subtree:true});
+
+  // do something after animation is done
+  // $('#greeting').one(animationEnd, function(){
+  //   // $('#greeting').addClass("animated bounceInLeft");
+  //   $('#js--food-categories').addClass("animated fadeIn");
+  // });
+
+
+
 });
+
+
+
+
+
+
+

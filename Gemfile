@@ -17,7 +17,8 @@ gem 'puma', '~> 3.7'
 gem 'sass-rails', '~> 5.0'
 
 gem 'bootstrap', '~> 4.0.0.beta3'
-gem 'font-awesome-sass'
+# gem 'font-awesome-sass', '~> 5.0.6'
+gem "animate-rails"
 gem 'jquery-rails'
 gem 'bundler', '~> 1.14.6'
 gem 'dotenv-rails'
