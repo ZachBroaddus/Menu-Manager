@@ -178,6 +178,24 @@ footer {
   opacity: 1;
 }
 
+.fix-flash-padding {
+  /* Chrome, Safari, Opera */
+  -webkit-animation: mymove 0.5s;
+  animation: mymove 0.5s;
+}
+
+/* Chrome, Safari, Opera */
+@-webkit-keyframes mymove {
+  0% {padding-top: 0px;}
+  100% {padding-top: 14px;}
+}
+
+/* Standard syntax */
+@keyframes mymove {
+  0% {padding-top: 0px;}
+  100% {padding-top: 14px;}
+}
+
 // larger screens
 @media (min-width: 992px) {
   body {

@@ -65,10 +65,7 @@ $(document).ready(function() {
   });
 
   $('.col-lg-9').on('click', '.js--start-order', function(){
-    // $('.menu-category').removeClass("animated fadeIn");
-    // $('.card').removeClass("animated fadeIn");
-    console.log("Start order button clicked");
-    // $('.card').stop();
+    // console.log("Start order button clicked");
   });
 
   $('.card-footer').on('click', '.js--add-to-order', function(){
@@ -82,9 +79,10 @@ $(document).ready(function() {
   });
 
   // timeout for flash error messages
+  var delay = 500;
   $(function() {
     setTimeout(function(){
-      $('.alert').slideUp(500);
+      $('.alert').slideUp(delay);
     }, 4000);
   });
 
@@ -93,9 +91,12 @@ $(document).ready(function() {
 
   var observer = new MutationObserver(function(mutations) {
      if (document.contains(flashNotice)) {
-          console.log("There's a flash notice in the DOM!");
+        console.log("There's a flash notice in the DOM!");
+        $("#html").addClass("fix-flash-padding");
+        setTimeout(function(){
           document.getElementById("html").style.paddingTop = "14px";
-          observer.disconnect();
+        }, delay);
+        observer.disconnect();
       }
   });
 
