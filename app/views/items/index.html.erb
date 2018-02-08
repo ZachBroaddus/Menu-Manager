@@ -1,20 +1,20 @@
 
-<h3 id="appetizers">Appetizers:</h3>
+<h3 id="appetizers" class="menu-category animated fadeIn">Appetizers:</h3>
 <div id="js--appetizers" class="row">
   <%= render :partial => "item", :collection => @appetizers, :as => :item %>
 </div>
 
-<h3 id="entrees">Entrees:</h3>
+<h3 id="entrees" class="menu-category animated fadeIn">Entrees:</h3>
 <div id="js--entrees" class="row">
   <%= render :partial => "item", :collection => @entrees, :as => :item %>
 </div>
 
-<h3 id="beverages">Beverages:</h3>
+<h3 id="beverages" class="menu-category animated fadeIn">Beverages:</h3>
 <div id="js--beverages" class="row">
   <%= render :partial => "item", :collection => @beverages, :as => :item %>
 </div>
 
-<h3 id="desserts">Desserts:</h3>
+<h3 id="desserts" class="menu-category animated fadeIn">Desserts:</h3>
 <div id="js--desserts" class="row">
   <%= render :partial => "item", :collection => @desserts, :as => :item %>
 </div>
@@ -22,6 +22,6 @@
 <% if logged_in? && admin? %>
   <%= link_to 'Add an Item to the Menu', new_item_path %><br><br>
 <% end %>
-<div id="order-control-buttons">
+<div id="order-control-buttons" class="animated fadeIn">
   <%= render :partial => "orders/order_control_buttons" %>
 </div>

@@ -64,10 +64,12 @@ $(document).ready(function() {
     }
   });
 
-  // $('.col-lg-9').on('click', '.js--cancel-order', function(){
-  //   $('.js--review-order').fadeOut(800);
-  //   $('.js--cancel-order').fadeOut(800);
-  // });
+  $('.col-lg-9').on('click', '.js--start-order', function(){
+    // $('.menu-category').removeClass("animated fadeIn");
+    // $('.card').removeClass("animated fadeIn");
+    console.log("Start order button clicked");
+    // $('.card').stop();
+  });
 
   $('.card-footer').on('click', '.js--add-to-order', function(){
     // console.log('add button clicked!');
@@ -100,9 +102,9 @@ $(document).ready(function() {
   observer.observe(document, {attributes: false, childList: true, characterData: false, subtree:true});
 
   // do something after animation is done
-  // $('#js--greeting').one(animationEnd, function(){
+  // $('.card').one(animationEnd, function(){
   //   // $('#js--greeting').addClass("animated bounceInLeft");
-  //   $('#js--food-categories').addClass("animated fadeIn");
+  //   $('.card').removeClass("animated fadeIn");
   // });
 
 
