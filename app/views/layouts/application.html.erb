@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html id="html" class="<%= full_height %>" data-session="<%= session[:user_id] %>">
+<html class="<%= full_height %>" data-session="<%= session[:user_id] %>">
   <head>
     <title>Menu Manager</title>
     <%= csrf_meta_tags %>
@@ -50,7 +50,7 @@
     <%= render partial: "shared/errors" if !flash.empty? %>
 
   <!-- Page Content -->
-  <div id="js--menu" class="container" data-order-id="<%= current_order.id %>">
+  <div id="js--menu" class="container main-content" data-order-id="<%= current_order.id %>">
 
     <div class="row">
       <% if current_page?(root_path) %>

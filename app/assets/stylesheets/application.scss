@@ -43,6 +43,10 @@ body {
   padding-top: 56px;
 }
 
+.even-less-padding {
+  padding-top: 42px;
+}
+
 .inline {
    display: inline;
 }
@@ -140,45 +144,6 @@ footer {
   -o-animation-delay: 1.4s;
 }
 
-.card {
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-  border-radius: 5px;
-  -webkit-transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
-  transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
-  -webkit-animation-duration: 1s;
-  -moz-animation-duration: 1s;
-  -ms-animation-duration: 1s;
-  -o-animation-duration: 1s;
-  -webkit-animation-delay: 1s;
-  -moz-animation-delay: 1s;
-  -ms-animation-delay: 1s;
-  -o-animation-delay: 1s;
-}
-
-.card::after {
-  content: "";
-  border-radius: 5px;
-  position: absolute;
-  z-index: -1;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-  opacity: 0;
-  -webkit-transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
-  transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
-}
-
-.card:hover {
-  -webkit-transform: scale(1.03, 1.03);
-  transform: scale(1.03, 1.03);
-}
-
-.card:hover::after {
-  opacity: 1;
-}
-
 .fix-flash-padding {
   /* Chrome, Safari, Opera */
   -webkit-animation: mymove 0.5s;
@@ -197,15 +162,21 @@ footer {
   100% {padding-top: 14px;}
 }
 
+.main-content {
+  min-height: calc(100vh - 230px); /* Total viewport height - (height of navbar + height of footer) */
+}
+
 // larger screens
 @media (min-width: 992px) {
   body {
     padding-top: 70px;
   }
 
-  .less-padding {
-    padding-top: 56px;
-  }
+  // .main-content {
+  //   // this fixes footer issue for pages with little content
+  //   min-height: calc(100vh - 230px); /* Total viewport height - (height of navbar + height of footer) */
+  // }
+
   .carousel_img {
     width: auto;
     height: 450px;
@@ -219,6 +190,45 @@ footer {
   .quantity {
     margin-left: 2px;
     margin-right: 2px;
+  }
+
+  .card {
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    -webkit-transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+    transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+    -webkit-animation-duration: 1s;
+    -moz-animation-duration: 1s;
+    -ms-animation-duration: 1s;
+    -o-animation-duration: 1s;
+    -webkit-animation-delay: 1s;
+    -moz-animation-delay: 1s;
+    -ms-animation-delay: 1s;
+    -o-animation-delay: 1s;
+  }
+
+  .card::after {
+    content: "";
+    border-radius: 5px;
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    -webkit-transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+    transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+  }
+
+  .card:hover {
+    -webkit-transform: scale(1.03, 1.03);
+    transform: scale(1.03, 1.03);
+  }
+
+  .card:hover::after {
+    opacity: 1;
   }
 
 }

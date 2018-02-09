@@ -59,7 +59,7 @@ $(document).ready(function() {
   };
 
   $('.col-lg-9').on('click', '.js--start-order', function(){
-    if (Number.isInteger($('#html').data('session'))) {
+    if (Number.isInteger($('html').data('session'))) {
       scrollToAppetizers();
     }
   });
@@ -79,23 +79,30 @@ $(document).ready(function() {
   });
 
   // timeout for flash error messages
-  var delay = 500;
+  var shortDelay = 500;
+  var longDelay = 4000;
   $(function() {
     setTimeout(function(){
-      $('.alert').slideUp(delay);
-    }, 4000);
+      $('.alert').slideUp(shortDelay);
+    }, longDelay);
   });
 
   // fix html padding after flash notice disappears
   var flashNotice = document.getElementById('flash-alert');
+  // var pathname = window.location.pathname;
 
   var observer = new MutationObserver(function(mutations) {
      if (document.contains(flashNotice)) {
         console.log("There's a flash notice in the DOM!");
-        $("#html").addClass("fix-flash-padding");
+        $("html").addClass("fix-flash-padding");
+
         setTimeout(function(){
-          document.getElementById("html").style.paddingTop = "14px";
-        }, delay);
+            $("html").css("padding-top", "14px");
+        }, shortDelay);
+
+        setTimeout(function(){
+            $(".item-form-h3").css("padding-top", "14px");
+        }, longDelay);
         observer.disconnect();
       }
   });
