@@ -108,6 +108,23 @@ $(document).ready(function() {
   //   $('.card').removeClass("animated fadeIn");
   // });
 
+  // // set focus on modal forms
+  // modal.$el.on('shown', function () {
+  //   $('input:text:visible:first', this).focus();
+  // });
+
+  // // or
+  // $('.modal').on('shown.bs.modal', function () {
+  //     $('input:first', this).focus();
+  // });
+
+  // focus cursor on first form field and move it to end of existing text,
+  // if existing text
+  var focusElement = $('input:text:visible:first')
+  focusElement.focus();
+  var tmpStr = focusElement.val();
+  focusElement.val('');
+  focusElement.val(tmpStr);
 
 
 });

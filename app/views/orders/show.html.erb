@@ -35,7 +35,7 @@
   <div class="left">
     <%= form_for @order, :url => {:controller => :orders, action: :update}, method: :put do |f| %>
       <%= f.hidden_field :status, { :value => 'placed' } %>
-      <%= f.submit "Place Order", class: 'btn btn-primary' %>&nbsp;&nbsp;
+      <%= f.button "Place Order", class: 'btn btn-primary', data: { disable_with: "<i class='fas fa-spinner fa-pulse'></i> Processing your order..." } %>&nbsp;&nbsp;
     <% end %>
   </div>
   <% unless current_order.tip_multiplier == 0 %>
