@@ -3,7 +3,7 @@ class OrdersController < ApplicationController
 
   def create
     if logged_in? != true
-      flash[:error] = ["Please sign in."]
+      flash[:notice] = ["Please sign in."]
       respond_to do |format|
         format.html { redirect_to new_session_path }
         format.js { render js: "window.location='#{new_session_path.to_s}'" }

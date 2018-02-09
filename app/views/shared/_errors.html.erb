@@ -1,10 +1,19 @@
 <% flash.each do |key, value| %>
-  <div id="flash-alert" class="alert alert-danger" role="alert">
-    <span class="sr-only">Error:</span>
-      <% value.each do |v| %>
-        <%= v %><br>
-      <% end %>
-  </div>
+  <% if key == "error" %>
+    <div id="flash-alert" class="alert alert-danger" role="alert">
+      <span class="sr-only">Error:</span>
+        <% value.each do |v| %>
+          <%= v %><br>
+        <% end %>
+    </div>
+  <% else %>
+    <div id="flash-alert" class="alert alert-primary" role="alert">
+      <span class="sr-only">Error:</span>
+        <% value.each do |v| %>
+          <%= v %><br>
+        <% end %>
+    </div>
+  <% end %>
 <% end %>
 
 

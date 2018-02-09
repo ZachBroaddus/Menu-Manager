@@ -126,6 +126,10 @@ $(document).ready(function() {
   focusElement.val('');
   focusElement.val(tmpStr);
 
+  $(document).ready(function() {
+    $('select').niceSelect();
+  });
+
 
 });
 
