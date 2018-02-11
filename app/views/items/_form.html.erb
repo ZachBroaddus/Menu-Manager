@@ -13,11 +13,15 @@
   </div>
   <div class="form-group">
     <label for="item-category">Category</label><br>
-    <%= f.select(:category, options_for_select(@categories), { prompt: 'Please Select', class: 'form-control'}) %><br><br>
+    <%= f.select(:category, options_for_select(@categories), { include_blank: 'Please Select', class: 'form-control'}) %><br><br>
   </div>
   <div class="form-group">
     <label for="item-image">Image</label><br>
-    <%= f.file_field :image, placeholder: "Select File" %>
+    <div class="fileinput fileinput-new" data-provides="fileinput">
+      <span class="btn btn-outline-secondary btn-file"><span class="fileinput-new">Select file</span><span class="fileinput-exists">Change</span><%= f.file_field :image, placeholder: "Select File" %></span>&nbsp;
+      <span class="fileinput-filename"></span>
+      <a href="#" class="close fileinput-exists" data-dismiss="fileinput" style="float: none">&times;</a>
+    </div>
   </div>
     <% if current_page?(new_item_path) %>
       <%= f.button "Confirm and Add", class: 'btn btn-primary', data: { disable_with: "<i class='fas fa-spinner fa-pulse'></i> Adding item..." } %>

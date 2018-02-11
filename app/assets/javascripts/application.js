@@ -13,6 +13,7 @@
 //= require jquery3
 //= require popper
 //= require bootstrap-sprockets
+//= require jasny-bootstrap.min
 //= require rails-ujs
 //= require jquery.nice-select
 //= index
