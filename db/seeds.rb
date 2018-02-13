@@ -34,7 +34,6 @@ Item.create!(name: "Affogato", description: "double-shot espresso, caramel ice c
 
 User.delete_all
 User.create!(email: "zach.broaddus@gmail.com", first_name: "Zach", password: "admin123", role: "admin")
-User.create!(email: "kayla@kayla.com", first_name: "Kayla", password: "Zj1yRw1rQ", role: "admin")
 # 5.times do
 #   User.create!(email: Faker::Internet.safe_email, first_name: Faker::Name.first_name, password: Faker::Internet.password(8, 12), role: "user")
 # end

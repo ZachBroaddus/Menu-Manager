@@ -50,6 +50,7 @@ module ApplicationHelper
     sprintf "%.2f", price
   end
 
+  # replaced with much more elegant solution. need to remove all method calls
   def full_height
     # url = request.path_info
     # if current_order?
