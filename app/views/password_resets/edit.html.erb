@@ -1,0 +1,14 @@
+<h3>Reset Password</h3>
+
+<br>
+<%= form_for @user, :url => password_reset_path(params[:id]) do |f| %>
+  <div class="field form-group">
+    <%= f.label :password %>
+    <%= f.password_field :password, placeholder: "Password", class: 'form-control'  %>
+    <small id="passwordHelpInline" class="text-muted">
+      Must be at least 8 characters long.
+    </small>
+  </div>
+  <div class="actions"><%= button_tag "Update Password", class: 'btn btn-primary', data: { disable_with: "<i class='fas fa-spinner fa-pulse'></i> Updating password..." } %>
+  </div>
+<% end %>

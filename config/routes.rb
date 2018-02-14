@@ -10,6 +10,8 @@ Rails.application.routes.draw do
 
   resources :order_items, only: [:create, :update, :destroy]
 
+  resources :password_resets
+
   root 'items#index'
 
   get 'confirm', to: 'orders#confirm', as: 'confirm'

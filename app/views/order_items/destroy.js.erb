@@ -1,1 +1,6 @@
+$('.card-footer').on('click', '.js--remove-from-order', function(){
+  // console.log('remove button clicked!');
+  var $target = $(this);
+});
+
 $target.closest('.card-footer').html("<%= escape_javascript(render partial: 'order_items/card_footer', locals: { item: @item, order_item: @order_item }) %>");

@@ -64,10 +64,6 @@ $(document).ready(function() {
     }
   });
 
-  $('.col-lg-9').on('click', '.js--start-order', function(){
-    // console.log("Start order button clicked");
-  });
-
   $('.card-footer').on('click', '.js--add-to-order', function(){
     // console.log('add button clicked!');
     $target = $(this);
