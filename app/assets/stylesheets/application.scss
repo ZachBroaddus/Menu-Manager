@@ -182,7 +182,7 @@ footer {
 
 .center {
     margin: auto;
-    width: 40%;
+    width: 60%;
     text-align: center;
 }
 
@@ -194,7 +194,7 @@ footer {
 .profile-image {
   background-image: url("space-compressed.jpg");
   background-repeat: no-repeat;
-  background-size: 100%;
+  background-size: cover;
   padding-top: 1.3em;
   width: 100%;
   box-shadow: 0 0 5px 5px #eff2f4 inset;
