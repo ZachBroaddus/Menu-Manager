@@ -1,0 +1,20 @@
+  <!-- Modal -->
+  <div class="modal left fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" displayed="false">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+
+        <div class="modal-header">
+          <h4 class="modal-title" id="myModalLabel">Like this app?</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        </div>
+
+        <div class="modal-body">
+          <p>Contact Zach to find out how he can help your business grow.</p><br>
+          <%= mail_to "zach.broaddus@gmail.com", "Email", subject: "Nice App!", body: "Hi Zach,\n\n I loved your app and I'm interested in having you build our website/join our team!" %> |
+          <%= link_to "Linkedin", "https://www.linkedin.com/in/zach-broaddus/" %> |
+          <%= link_to "Github", "https://github.com/ZachBroaddus" %>
+        </div>
+
+      </div><!-- modal-content -->
+    </div><!-- modal-dialog -->
+  </div><!-- modal -->

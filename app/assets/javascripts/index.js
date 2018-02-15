@@ -130,7 +130,16 @@ $(document).ready(function() {
   focusElement.val(tmpStr);
 
   $('select').niceSelect();
-  $('.fileinput').fileinput()
+  $('.fileinput').fileinput();
+
+  // $('.modal').modal('toggle')
+  // $('#myModal').modal('show');
+  $(window).scroll(function() {
+     if ($(document).scrollTop() > 3250 && $("#myModal").attr("displayed") === "false") {
+       $('#myModal').modal('show');
+       $("#myModal").attr("displayed", "true");
+     }
+   });
 
 
 });
