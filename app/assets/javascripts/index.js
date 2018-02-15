@@ -124,6 +124,9 @@ $(document).ready(function() {
   // initialize file input styling
   $('.fileinput').fileinput();
 
+  // toggle tooltip
+  $('[data-toggle="tooltip"]').tooltip();
+
   // show modal once per 30 minute window, trigger on scroll
   $(window).on('scroll', function(){
     var s = $(window).scrollTop(),
@@ -136,7 +139,7 @@ $(document).ready(function() {
     // console.log(scrollPercent);
     if (scrollPercent > 80 && Cookies.get('modal_shown') == null) {
         var in30Minutes = 1/48;
-        Cookies.set('modal_shown', 'yes', { expires: in30Minutes, path: '/' });
+        // Cookies.set('modal_shown', 'yes', { expires: in30Minutes, path: '/' });
         $('#myModal').modal('show');
     }
   })

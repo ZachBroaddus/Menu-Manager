@@ -1,0 +1,17 @@
+<br><h3>Need a website for your business?</h3>
+<h3>Is your company in need of a talented developer?</h3><br><br>
+<p><em>Contact Zach to find out how he can help your business grow!</em></p>
+
+<ul class="no-bullets no-indent">
+  <div class="row">
+    <div class="col-8">
+      <li class="contact-link"><%= mail_to "zach.broaddus@gmail.com", '<i class="fas fa-envelope"></i>&nbsp;&nbsp;Email'.html_safe, subject: "Nice App!", body: "Hi Zach,\n\n I loved your app and I'm interested in having you build our website/join our team!", class: "btn btn-outline-secondary btn-block text-left", title: 'zach.broaddus@gmail.com', 'data-toggle' => 'tooltip', 'data-placement' => 'right', 'data-animation' => 'true' %></li><br>
+    </div>
+    <div class="col-8">
+      <li class="contact-link"><%= link_to '<i class="fab fa-linkedin-in"></i>&nbsp;&nbsp;Linkedin'.html_safe, "https://www.linkedin.com/in/zach-broaddus/", class: "btn btn-outline-secondary btn-block text-left" %></li><br>
+    </div>
+    <div class="col-8">
+      <li class="contact-link"><%= link_to '<i class="fab fa-github"></i>&nbsp;&nbsp;Github'.html_safe, "https://github.com/ZachBroaddus", class: "btn btn-outline-secondary btn-block text-left" %></li><br>
+    </div>
+  </div>
+</ul>

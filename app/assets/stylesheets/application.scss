@@ -17,7 +17,8 @@
 @import "bootstrap";
 @import "font-awesome-sprockets";
 @import "font-awesome";
-@import 'nice-select';
+@import "nice-select";
+@import "cssgram.min";
 
 /*!
  * Start Bootstrap - Shop Homepage (https://startbootstrap.com/template-overviews/shop-homepage)
@@ -34,6 +35,8 @@ body {
   padding-bottom: 120px;
   height: 100%;
   position: relative;
+  background-color: #eff2f4;
+  font-family: 'Poppins', Times, sans-serif;
 }
 
 .full-height {
@@ -83,6 +86,22 @@ footer {
 
 .no-bullets {
   list-style-type:none
+}
+
+.no-indent {
+  padding-left: 0;
+}
+
+a {
+  color: black;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+.btn-outline-secondary {
+  color: #0a0b0c;
 }
 
 .quantity-container {
@@ -181,14 +200,16 @@ footer {
 }
 
 .center {
-    margin: auto;
-    width: 60%;
-    text-align: center;
+  margin: auto;
+  width: 60%;
+  text-align: center;
 }
 
 .img-circle {
-    border-radius: 50%;
-    margin-bottom: 1em;
+  border-radius: 50%;
+  margin-bottom: 1em;
+  -webkit-filter: saturate(1.1);
+  filter: saturate(1.1);
 }
 
 .profile-image {
@@ -198,6 +219,16 @@ footer {
   padding-top: 1.3em;
   width: 100%;
   box-shadow: 0 0 5px 5px #eff2f4 inset;
+}
+
+#profile-image {
+  margin-bottom: 30px;
+}
+
+.bio {
+  border-top: 2px solid grey;
+  padding-top: 10px;
+  font-size: 20px;
 }
 
 // larger screens
