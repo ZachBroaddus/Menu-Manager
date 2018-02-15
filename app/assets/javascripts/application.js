@@ -16,6 +16,7 @@
 //= require jasny-bootstrap.min
 //= require rails-ujs
 //= require jquery.nice-select
+//= require js.cookie
 //= index
 //= require_tree .
 

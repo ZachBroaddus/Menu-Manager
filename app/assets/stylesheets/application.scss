@@ -167,6 +167,39 @@ footer {
   min-height: calc(100vh - 230px); /* Total viewport height - (height of navbar + height of footer) */
 }
 
+#myModal {
+   top: 100px;
+   z-index: 10040;
+}
+
+.modal-body {
+  background-color: #eff2f4;
+}
+
+.modal-header {
+  background-color: #eff2f4;
+}
+
+.center {
+    margin: auto;
+    width: 40%;
+    text-align: center;
+}
+
+.img-circle {
+    border-radius: 50%;
+    margin-bottom: 1em;
+}
+
+.profile-image {
+  background-image: url("space-compressed.jpg");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  padding-top: 1.3em;
+  width: 100%;
+  box-shadow: 0 0 5px 5px #eff2f4 inset;
+}
+
 // larger screens
 @media (min-width: 992px) {
   body {
@@ -234,14 +267,5 @@ footer {
 
 }
 
-#myModal {
-   // position: absolute;
-   // top: 10px;
-   // right: 10px;
-   // bottom: 0;
-   // left: 0;
-   // z-index: 10040;
-   // overflow: auto;
-   // overflow-y: auto;
-}
+
 

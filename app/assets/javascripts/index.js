@@ -85,7 +85,6 @@ $(document).ready(function() {
 
   // fix html padding after flash notice disappears
   var flashNotice = document.getElementById('flash-alert');
-  // var pathname = window.location.pathname;
 
   var observer = new MutationObserver(function(mutations) {
      if (document.contains(flashNotice)) {
@@ -111,16 +110,6 @@ $(document).ready(function() {
   //   $('.card').removeClass("animated fadeIn");
   // });
 
-  // // set focus on modal forms
-  // modal.$el.on('shown', function () {
-  //   $('input:text:visible:first', this).focus();
-  // });
-
-  // // or
-  // $('.modal').on('shown.bs.modal', function () {
-  //     $('input:first', this).focus();
-  // });
-
   // focus cursor on first form field and move it to end of existing text,
   // if existing text
   var focusElement = $('input:text:visible:first')
@@ -129,17 +118,28 @@ $(document).ready(function() {
   focusElement.val('');
   focusElement.val(tmpStr);
 
+  // initialize dropdown styling
   $('select').niceSelect();
+
+  // initialize file input styling
   $('.fileinput').fileinput();
 
-  // $('.modal').modal('toggle')
-  // $('#myModal').modal('show');
-  $(window).scroll(function() {
-     if ($(document).scrollTop() > 3250 && $("#myModal").attr("displayed") === "false") {
-       $('#myModal').modal('show');
-       $("#myModal").attr("displayed", "true");
-     }
-   });
+  // show modal once per 30 minute window, trigger on scroll
+  $(window).on('scroll', function(){
+    var s = $(window).scrollTop(),
+        d = $(document).height(),
+        c = $(window).height();
+
+    var scrollPercent = (s / (d - c)) * 100;
+
+    // console.clear();
+    // console.log(scrollPercent);
+    if (scrollPercent > 80 && Cookies.get('modal_shown') == null) {
+        var in30Minutes = 1/48;
+        Cookies.set('modal_shown', 'yes', { expires: in30Minutes, path: '/' });
+        $('#myModal').modal('show');
+    }
+  })
 
 
 });
