@@ -1,11 +1,12 @@
 $(document).ready(function() {
 
   // initialize add to homescreen message for mobile users
-  // addToHomescreen();
-  var addtohome = addToHomescreen({
-     autostart: false
-  });
-  addtohome.show();
+  addToHomescreen(
+    maxDisplayCount: 2
+    // remember to add comma to prev line if uncommenting next line.
+    // startDelay: 5
+  );
+
 
   // initialize dropdown styling
   $('select').niceSelect();
