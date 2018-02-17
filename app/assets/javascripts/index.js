@@ -149,7 +149,7 @@ $(document).ready(function() {
     // console.log(scrollPercent);
     if (scrollPercent > 80 && Cookies.get('modal_shown') == null) {
         var in30Minutes = 1/48;
-        // Cookies.set('modal_shown', 'yes', { expires: in30Minutes, path: '/' });
+        Cookies.set('modal_shown', 'yes', { expires: in30Minutes, path: '/' });
         $('#myModal').modal('show');
     }
   })
