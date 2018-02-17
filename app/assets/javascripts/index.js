@@ -1,7 +1,11 @@
 $(document).ready(function() {
 
   // initialize add to homescreen message for mobile users
-  addToHomescreen();
+  // addToHomescreen();
+  var addtohome = addToHomescreen({
+     autostart: false
+  });
+  addtohome.show();
 
   // initialize dropdown styling
   $('select').niceSelect();
