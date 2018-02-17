@@ -1,4 +1,17 @@
 $(document).ready(function() {
+
+  // initialize add to homescreen message for mobile users
+  addToHomescreen();
+
+  // initialize dropdown styling
+  $('select').niceSelect();
+
+  // initialize file input styling
+  $('.fileinput').fileinput();
+
+  // toggle tooltip
+  $('[data-toggle="tooltip"]').tooltip();
+
   var animationEnd = (function(el) {
     var animations = {
       animation: 'animationend',
@@ -118,14 +131,6 @@ $(document).ready(function() {
   focusElement.val('');
   focusElement.val(tmpStr);
 
-  // initialize dropdown styling
-  $('select').niceSelect();
-
-  // initialize file input styling
-  $('.fileinput').fileinput();
-
-  // toggle tooltip
-  $('[data-toggle="tooltip"]').tooltip();
 
   // show modal once per 30 minute window, trigger on scroll
   $(window).on('scroll', function(){

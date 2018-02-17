@@ -17,6 +17,7 @@
 //= require rails-ujs
 //= require jquery.nice-select
 //= require js.cookie
+//= require addtohomescreen.min
 //= index
 //= require_tree .
 
