@@ -2,7 +2,8 @@ $(document).ready(function() {
 
   // initialize add to homescreen message for mobile users
   addToHomescreen({
-    maxDisplayCount: 2
+    maxDisplayCount: 2,
+    lifespan: 30
     // remember to add comma to prev line if uncommenting next line.
     // startDelay: 5
   });
