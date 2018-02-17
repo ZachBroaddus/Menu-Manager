@@ -114,6 +114,7 @@ Rails.application.configure do
     }
   }
 
-  config.action_controller.asset_host = "d1kzgafs3x6gxt.cloudfront.net"
+  # uncomment if using amazon cloudfront
+  # config.action_controller.asset_host = ENV.fetch('cloudfront_domain')
 
 end
