@@ -102,9 +102,6 @@ $(document).ready(function() {
         $('html').css('padding-top', '14px');
       }, shortDelay);
 
-      setTimeout(function() {
-        $('.item-form-h3').css('padding-top', '14px');
-      }, longDelay);
       observer.disconnect();
     }
   });

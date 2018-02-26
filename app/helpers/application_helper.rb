@@ -51,10 +51,7 @@ module ApplicationHelper
   end
 
   def flash_padding
-    url = request.path_info
-    if flash.any? && url.include?('items')
-      'even-less-padding'
-    elsif flash.any?
+    if flash.any?
       'less-padding'
     end
   end
